@@ -59,7 +59,7 @@
 					<div class="d-table-cell align-middle">
 
 						
-						<div class="shadow-lg p-3 mb-5 bg-white rounded">
+						<div class="shadow-lg p-3 mb-5 ">
 						<div class="card">
 							<div class="card-header">
 								<div class="text-center mt-4">
@@ -74,7 +74,7 @@
 									<form action="{{route('check')}}" method="POST">
 										@csrf
 										<div class="mb-3">
-											<label>Email</label>
+											<label >Email</label> <br> 
 											<input class="form-control form-control-lg" type="email" name="email" value="{{old('email')}}" placeholder="Entrez votre email" />
 											<span class="text-danger">
 												@error('email')
@@ -83,7 +83,7 @@
 											  </span>
 										</div>
 										<div class="mb-3">
-											<label>Mot de passe</label>
+											<label>Mot de passe</label> <br>
 											<input class="form-control form-control-lg" type="password" name="mdp" placeholder="Entrez votre mot de passe" />
 											<span class="text-danger">
 												@error('mdp')
