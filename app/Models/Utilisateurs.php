@@ -10,6 +10,13 @@ use function PHPSTORM_META\type;
 class Utilisateurs extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'nom',
+        'prenom',
+        'email',
+        'mdp',
+        'img'
+    ];
 
 
     public function roletype(){

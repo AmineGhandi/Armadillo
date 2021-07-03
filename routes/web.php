@@ -21,10 +21,13 @@ Route::get('/', function () {
 Route::post('/check',[UtilisateursController::class,'check'])->name('check');
 Route::get('/logout',[UtilisateursController::class,'logout'])->name('logout');
 
+
 Route::group(['middleware'=>['AuthCheck']],function(){
     Route::get('/admin-dashboard',[UtilisateursController::class ,'Adminp'])->name('Admin');
     Route::get('/Supervisor-dashboard',[UtilisateursController::class ,'Supervisorp'])->name('Supervisor');
     Route::get('/Mail-dashboard',[UtilisateursController::class ,'Mailp'])->name('Mail');
     Route::get('/Print-dashboard',[UtilisateursController::class ,'Printp'])->name('Print');
     Route::get('/login',[UtilisateursController::class ,'login'])->name('login');
+    Route::get('/edit-profil{id}',[UtilisateursController::class,'editprofil'])->name('editprof');
+    Route::post('/update-user/{id}',[UtilisateursController::class,'updateUser']);
 });

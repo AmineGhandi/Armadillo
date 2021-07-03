@@ -51,7 +51,7 @@
 			</a>
 			<div class="sidebar-content">
 				<div class="sidebar-user">
-					<img src="{{asset('img/avatars/avatar.jpg')}}" class="img-fluid rounded-circle mb-2" alt="{{$LoggedUserInfo['prenom']}} {{$LoggedUserInfo['nom']}}" />
+					<img src="{{$LoggedUserInfo['img']}}" class="img-fluid rounded-circle mb-2" alt="{{$LoggedUserInfo['prenom']}} {{$LoggedUserInfo['nom']}}" />
 					<div class="fw-bold">{{$LoggedUserInfo['prenom']}} {{$LoggedUserInfo['nom']}}</div>
 					<small>{{$LoggedUserInfo['role']}}</small>
 				</div>
@@ -74,7 +74,7 @@
 								<i class="align-middle fas fa-cog"></i>
 							</a>
 							<div class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
-								<a class="dropdown-item" href="#"><i class="align-middle me-1 fas fa-fw fa-user"></i> Modifier Profile</a>
+								<a class="dropdown-item" href="{{url('/edit-profil' . $LoggedUserInfo['id'])}}"><i class="align-middle me-1 fas fa-fw fa-user"></i> Modifier Profile</a>
 								<div class="dropdown-divider"></div>
 								<a class="dropdown-item" href="{{route('logout')}}"><i class="align-middle me-1 fas fa-fw fa-arrow-alt-circle-right"></i> Se deconnecter</a>
 							</div>

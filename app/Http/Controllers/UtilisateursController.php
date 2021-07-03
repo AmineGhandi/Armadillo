@@ -66,4 +66,39 @@ class UtilisateursController extends Controller
             return redirect('/login');
         }
     }
+    public function editprofil($id){
+        $User = Utilisateurs::find($id);
+        $data = ['LoggedUserInfo' =>Utilisateurs::where('id','=',session('LoggedUser'))->first() ];
+        return view('admin.edit-profil', $data , compact('User'));
+    }
+    public function updateUser($id , Request $request){
+        $user = Utilisateurs::find($id);
+        
+
+        
+
+        $user->nom = $request->nom;
+        $user->prenom = $request->prenom;
+        $user->email = $request->email;
+        $user->mdp = $request->mdp;
+        if($request->hasFile('img')){
+        $user_img = $request->file('img');
+        $name_gen = hexdec(uniqid());
+        $image_ext = strtolower($user_img->getClientOriginalExtension());
+        $image_name = $name_gen . '.' . $image_ext;
+        $up_location = 'image/utilisateurs/';
+        $last_img = $up_location . $image_name ;
+        $user_img->move($up_location,$image_name);
+        $user->img = $last_img;
+
+        }
+             
+        
+        
+
+        $user->save();
+
+        return redirect(route('Admin'))->with('success','Informations modifiées avec succès!');
+        
+    }
 }
