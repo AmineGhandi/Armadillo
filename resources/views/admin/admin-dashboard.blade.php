@@ -1,4 +1,9 @@
 @extends('layout.index')
+@section('welcome-message')
+<h1 class="header-title">
+	Bonjour, {{$LoggedUserInfo['prenom']}}!
+</h1>
+@endsection
 @section('Sidebar')
 <ul class="sidebar-nav">
 	<li class="sidebar-header">
@@ -9,7 +14,7 @@
 			<i class="align-middle me-2 fas fa-fw fa-user-plus"></i> <span class="align-middle">Créer</span>
 		</a>
 		<ul id="dashboards" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
-			<li class="sidebar-item "><a class="sidebar-link" href="dashboard-default.html">Utilisateurs</a></li>
+			<li class="sidebar-item "><a class="sidebar-link" href="{{route('createUser')}}">Utilisateurs</a></li>
 			<li class="sidebar-item "><a class="sidebar-link" href="dashboard-analytics.html">Clients</a></li>
 		</ul>
 	</li>

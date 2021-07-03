@@ -23,14 +23,14 @@ class Utilisateurs extends Model
         if ($this->role == "Admin") {
             return "Admin";
         }
-        elseif ($this->role == "Supervisor"){
-            return "Supervisor";
+        elseif ($this->role == "Superviseur"){
+            return "Superviseur";
         }
-        elseif($this->role == "Print"){
-            return "Print";
+        elseif($this->role == "Agent impression"){
+            return "Agent impression";
         }
-        elseif ($this->role == "Mail") {
-            return "Mail";
+        elseif ($this->role == "Agent mailing") {
+            return "Agent mailing";
         }
     }
 }

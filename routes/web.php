@@ -29,5 +29,7 @@ Route::group(['middleware'=>['AuthCheck']],function(){
     Route::get('/Print-dashboard',[UtilisateursController::class ,'Printp'])->name('Print');
     Route::get('/login',[UtilisateursController::class ,'login'])->name('login');
     Route::get('/edit-profil{id}',[UtilisateursController::class,'editprofil'])->name('editprof');
-    Route::post('/update-user/{id}',[UtilisateursController::class,'updateUser']);
+    Route::post('/update-profil/{id}',[UtilisateursController::class,'updateprofil']);
+    Route::get('/create-user',[UtilisateursController::class,'createUser'])->name('createUser');
+    Route::post('/insert-user',[UtilisateursController::class,'insertUser'])->name('insertUser');
 });
