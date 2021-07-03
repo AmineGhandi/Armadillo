@@ -1,12 +1,167 @@
 @extends('layout.index')
+@section('Sidebar')
+<ul class="sidebar-nav">
+	<li class="sidebar-header">
+		Main
+	</li>
+	<li class="sidebar-item active">
+		<a data-bs-target="#dashboards" data-bs-toggle="collapse" class="sidebar-link">
+			<i class="align-middle me-2 fas fa-fw fa-home"></i> <span class="align-middle">Dashboards</span>
+		</a>
+		<ul id="dashboards" class="sidebar-dropdown list-unstyled collapse show" data-bs-parent="#sidebar">
+			<li class="sidebar-item active"><a class="sidebar-link" href="dashboard-default.html">Default</a></li>
+			<li class="sidebar-item"><a class="sidebar-link" href="dashboard-analytics.html">Analytics</a></li>
+			<li class="sidebar-item"><a class="sidebar-link" href="dashboard-e-commerce.html">E-commerce</a></li>
+		</ul>
+	</li>
+	<li class="sidebar-item">
+		<a data-bs-target="#pages" data-bs-toggle="collapse" class="sidebar-link collapsed">
+			<i class="align-middle me-2 fas fa-fw fa-file"></i> <span class="align-middle">Pages</span>
+		</a>
+		<ul id="pages" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
+			<li class="sidebar-item"><a class="sidebar-link" href="pages-settings.html">Settings</a></li>
+			<li class="sidebar-item"><a class="sidebar-link" href="pages-clients.html">Clients <span
+						class="sidebar-badge badge rounded-pill bg-primary">New</span></a></li>
+			<li class="sidebar-item"><a class="sidebar-link" href="pages-invoice.html">Invoice</a></li>
+			<li class="sidebar-item"><a class="sidebar-link" href="pages-pricing.html">Pricing</a></li>
+			<li class="sidebar-item"><a class="sidebar-link" href="pages-tasks.html">Tasks</a></li>
+			<li class="sidebar-item"><a class="sidebar-link" href="pages-chat.html">Chat <span
+						class="sidebar-badge badge rounded-pill bg-primary">New</span></a></li>
+			<li class="sidebar-item"><a class="sidebar-link" href="pages-blank.html">Blank Page</a></li>
+		</ul>
+	</li>
+	<li class="sidebar-item">
+		<a data-bs-target="#auth" data-bs-toggle="collapse" class="sidebar-link collapsed">
+			<i class="align-middle me-2 fas fa-fw fa-sign-in-alt"></i> <span class="align-middle">Auth</span>
+		</a>
+		<ul id="auth" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
+			<li class="sidebar-item"><a class="sidebar-link" href="pages-sign-in.html">Sign
+					In</a></li>
+			<li class="sidebar-item"><a class="sidebar-link" href="pages-sign-up.html">Sign
+					Up</a></li>
+			<li class="sidebar-item"><a class="sidebar-link" href="pages-reset-password.html">Reset Password</a></li>
+			<li class="sidebar-item"><a class="sidebar-link" href="pages-404.html">404
+					Page</a></li>
+			<li class="sidebar-item"><a class="sidebar-link" href="pages-500.html">500
+					Page</a></li>
+		</ul>
+	</li>
+
+	<li class="sidebar-header">
+		Elements
+	</li>
+	<li class="sidebar-item">
+		<a data-bs-target="#ui" data-bs-toggle="collapse" class="sidebar-link collapsed">
+			<i class="align-middle me-2 fas fa-fw fa-flask"></i> <span class="align-middle">User Interface</span>
+		</a>
+		<ul id="ui" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
+			<li class="sidebar-item"><a class="sidebar-link" href="ui-alerts.html">Alerts</a></li>
+			<li class="sidebar-item"><a class="sidebar-link" href="ui-buttons.html">Buttons</a></li>
+			<li class="sidebar-item"><a class="sidebar-link" href="ui-cards.html">Cards</a></li>
+			<li class="sidebar-item"><a class="sidebar-link" href="ui-general.html">General</a></li>
+			<li class="sidebar-item"><a class="sidebar-link" href="ui-grid.html">Grid</a>
+			</li>
+			<li class="sidebar-item"><a class="sidebar-link" href="ui-modals.html">Modals</a></li>
+			<li class="sidebar-item"><a class="sidebar-link" href="ui-offcanvas.html">Offcanvas</a></li>
+			<li class="sidebar-item"><a class="sidebar-link" href="ui-notifications.html">Notifications</a></li>
+			<li class="sidebar-item"><a class="sidebar-link" href="ui-tabs.html">Tabs</a>
+			</li>
+			<li class="sidebar-item"><a class="sidebar-link" href="ui-typography.html">Typography</a></li>
+		</ul>
+	</li>
+	<li class="sidebar-item">
+		<a data-bs-target="#charts" data-bs-toggle="collapse" class="sidebar-link collapsed">
+			<i class="align-middle me-2 fas fa-fw fa-chart-pie"></i> <span class="align-middle">Charts</span>
+			<span class="sidebar-badge badge rounded-pill bg-primary">New</span>
+		</a>
+		<ul id="charts" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
+			<li class="sidebar-item"><a class="sidebar-link" href="charts-chartjs.html">Chart.js</a></li>
+			<li class="sidebar-item"><a class="sidebar-link" href="charts-apexcharts.html">ApexCharts</a></li>
+		</ul>
+	</li>
+
+	<li class="sidebar-item">
+		<a data-bs-target="#forms" data-bs-toggle="collapse" class="sidebar-link collapsed">
+			<i class="align-middle me-2 fas fa-fw fa-check-square"></i> <span class="align-middle">Forms</span>
+		</a>
+		<ul id="forms" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
+			<li class="sidebar-item"><a class="sidebar-link" href="forms-layouts.html">Layouts</a></li>
+			<li class="sidebar-item"><a class="sidebar-link" href="forms-basic-elements.html">Basic Elements</a></li>
+			<li class="sidebar-item"><a class="sidebar-link" href="forms-advanced-elements.html">Advanced Elements</a></li>
+			<li class="sidebar-item"><a class="sidebar-link" href="forms-floating-labels.html">Floating Labels</a></li>
+			<li class="sidebar-item"><a class="sidebar-link" href="forms-input-groups.html">Input Groups</a></li>
+			<li class="sidebar-item"><a class="sidebar-link" href="forms-editors.html">Editors</a></li>
+			<li class="sidebar-item"><a class="sidebar-link" href="forms-validation.html">Validation</a></li>
+			<li class="sidebar-item"><a class="sidebar-link" href="forms-wizard.html">Wizard</a></li>
+		</ul>
+	</li>
+	<li class="sidebar-item">
+		<a data-bs-target="#tables" data-bs-toggle="collapse" class="sidebar-link collapsed">
+			<i class="align-middle me-2 fas fa-fw fa-table"></i> <span class="align-middle">Tables</span>
+		</a>
+		<ul id="tables" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
+			<li class="sidebar-item"><a class="sidebar-link" href="tables-bootstrap.html">Bootstrap</a></li>
+			<li class="sidebar-item"><a class="sidebar-link" href="tables-datatables.html">DataTables</a></li>
+		</ul>
+	</li>
+	<li class="sidebar-item">
+		<a data-bs-target="#icons" data-bs-toggle="collapse" class="sidebar-link collapsed">
+			<i class="align-middle me-2 fas fa-fw fa-heart"></i> <span class="align-middle">Icons</span>
+		</a>
+		<ul id="icons" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
+			<li class="sidebar-item"><a class="sidebar-link" href="icons-feather.html">Feather</a></li>
+			<li class="sidebar-item"><a class="sidebar-link" href="icons-ion.html">Ion
+					Icons</a></li>
+			<li class="sidebar-item"><a class="sidebar-link" href="icons-font-awesome.html">Font Awesome</a></li>
+		</ul>
+	</li>
+	<li class="sidebar-item">
+		<a class="sidebar-link" href="calendar.html">
+			<i class="align-middle me-2 far fa-fw fa-calendar-alt"></i> <span class="align-middle">Calendar</span>
+		</a>
+	</li>
+	<li class="sidebar-item">
+		<a data-bs-target="#maps" data-bs-toggle="collapse" class="sidebar-link collapsed">
+			<i class="align-middle me-2 fas fa-fw fa-map-marker-alt"></i> <span class="align-middle">Maps</span>
+		</a>
+		<ul id="maps" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
+			<li class="sidebar-item"><a class="sidebar-link" href="maps-google.html">Google Maps</a></li>
+			<li class="sidebar-item"><a class="sidebar-link" href="maps-vector.html">Vector Maps</a></li>
+		</ul>
+	</li>
+
+	<li class="sidebar-header">
+		Extras
+	</li>
+	<li class="sidebar-item">
+		<a data-bs-target="#documentation" data-bs-toggle="collapse" class="sidebar-link collapsed">
+			<i class="align-middle me-2 fas fa-fw fa-book"></i> <span class="align-middle">Documentation</span>
+		</a>
+		<ul id="documentation" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
+			<li class="sidebar-item"><a class="sidebar-link" href="docs-getting-started.html">Getting Started</a></li>
+			<li class="sidebar-item"><a class="sidebar-link" href="docs-plugins.html">Plugins</a></li>
+			<li class="sidebar-item"><a class="sidebar-link" href="docs-changelog.html">Changelog</a></li>
+		</ul>
+	</li>
+	<li class="sidebar-item">
+		<a data-bs-target="#layouts" data-bs-toggle="collapse" class="sidebar-link collapsed">
+			<i class="align-middle me-2 fas fa-fw fa-desktop"></i> <span class="align-middle">Layouts</span>
+		</a>
+		<ul id="layouts" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
+			<li class="sidebar-item"><a class="sidebar-link" href="layouts-sidebar-left.html">Left Sidebar</a></li>
+			<li class="sidebar-item"><a class="sidebar-link" href="layouts-sidebar-right.html">Right Sidebar</a></li>
+		</ul>
+	</li>
+</ul>
+	
+@endsection
 
 @section('page-body')
 				<div class="col-12">
 							<div class="card">
 								<div class="card-header">
-									<h5 class="card-title">Buttons</h5>
-									<h6 class="card-subtitle text-muted">This extension provides a framework with common options that can be used with
-										DataTables.</h6>
+									<h2 class="card-title">Utilisateurs</h2>
+									
 								</div>
 								<div class="card-body">
 									<table id="datatables-buttons" class="table table-striped" style="width:100%">
@@ -101,382 +256,6 @@
 												<td>2008/12/13</td>
 												<td>$103,600</td>
 											</tr>
-											<tr>
-												<td>Jena Gaines</td>
-												<td>Office Manager</td>
-												<td>London</td>
-												<td>30</td>
-												<td>2008/12/19</td>
-												<td>$90,560</td>
-											</tr>
-											<tr>
-												<td>Quinn Flynn</td>
-												<td>Support Lead</td>
-												<td>Edinburgh</td>
-												<td>22</td>
-												<td>2013/03/03</td>
-												<td>$342,000</td>
-											</tr>
-											<tr>
-												<td>Charde Marshall</td>
-												<td>Regional Director</td>
-												<td>San Francisco</td>
-												<td>36</td>
-												<td>2008/10/16</td>
-												<td>$470,600</td>
-											</tr>
-											<tr>
-												<td>Haley Kennedy</td>
-												<td>Senior Marketing Designer</td>
-												<td>London</td>
-												<td>43</td>
-												<td>2012/12/18</td>
-												<td>$313,500</td>
-											</tr>
-											<tr>
-												<td>Tatyana Fitzpatrick</td>
-												<td>Regional Director</td>
-												<td>London</td>
-												<td>19</td>
-												<td>2010/03/17</td>
-												<td>$385,750</td>
-											</tr>
-											<tr>
-												<td>Michael Silva</td>
-												<td>Marketing Designer</td>
-												<td>London</td>
-												<td>66</td>
-												<td>2012/11/27</td>
-												<td>$198,500</td>
-											</tr>
-											<tr>
-												<td>Paul Byrd</td>
-												<td>Chief Financial Officer (CFO)</td>
-												<td>New York</td>
-												<td>64</td>
-												<td>2010/06/09</td>
-												<td>$725,000</td>
-											</tr>
-											<tr>
-												<td>Gloria Little</td>
-												<td>Systems Administrator</td>
-												<td>New York</td>
-												<td>59</td>
-												<td>2009/04/10</td>
-												<td>$237,500</td>
-											</tr>
-											<tr>
-												<td>Bradley Greer</td>
-												<td>Software Engineer</td>
-												<td>London</td>
-												<td>41</td>
-												<td>2012/10/13</td>
-												<td>$132,000</td>
-											</tr>
-											<tr>
-												<td>Dai Rios</td>
-												<td>Personnel Lead</td>
-												<td>Edinburgh</td>
-												<td>35</td>
-												<td>2012/09/26</td>
-												<td>$217,500</td>
-											</tr>
-											<tr>
-												<td>Jenette Caldwell</td>
-												<td>Development Lead</td>
-												<td>New York</td>
-												<td>30</td>
-												<td>2011/09/03</td>
-												<td>$345,000</td>
-											</tr>
-											<tr>
-												<td>Yuri Berry</td>
-												<td>Chief Marketing Officer (CMO)</td>
-												<td>New York</td>
-												<td>40</td>
-												<td>2009/06/25</td>
-												<td>$675,000</td>
-											</tr>
-											<tr>
-												<td>Caesar Vance</td>
-												<td>Pre-Sales Support</td>
-												<td>New York</td>
-												<td>21</td>
-												<td>2011/12/12</td>
-												<td>$106,450</td>
-											</tr>
-											<tr>
-												<td>Doris Wilder</td>
-												<td>Sales Assistant</td>
-												<td>Sidney</td>
-												<td>23</td>
-												<td>2010/09/20</td>
-												<td>$85,600</td>
-											</tr>
-											<tr>
-												<td>Angelica Ramos</td>
-												<td>Chief Executive Officer (CEO)</td>
-												<td>London</td>
-												<td>47</td>
-												<td>2009/10/09</td>
-												<td>$1,200,000</td>
-											</tr>
-											<tr>
-												<td>Gavin Joyce</td>
-												<td>Developer</td>
-												<td>Edinburgh</td>
-												<td>42</td>
-												<td>2010/12/22</td>
-												<td>$92,575</td>
-											</tr>
-											<tr>
-												<td>Jennifer Chang</td>
-												<td>Regional Director</td>
-												<td>Singapore</td>
-												<td>28</td>
-												<td>2010/11/14</td>
-												<td>$357,650</td>
-											</tr>
-											<tr>
-												<td>Brenden Wagner</td>
-												<td>Software Engineer</td>
-												<td>San Francisco</td>
-												<td>28</td>
-												<td>2011/06/07</td>
-												<td>$206,850</td>
-											</tr>
-											<tr>
-												<td>Fiona Green</td>
-												<td>Chief Operating Officer (COO)</td>
-												<td>San Francisco</td>
-												<td>48</td>
-												<td>2010/03/11</td>
-												<td>$850,000</td>
-											</tr>
-											<tr>
-												<td>Shou Itou</td>
-												<td>Regional Marketing</td>
-												<td>Tokyo</td>
-												<td>20</td>
-												<td>2011/08/14</td>
-												<td>$163,000</td>
-											</tr>
-											<tr>
-												<td>Michelle House</td>
-												<td>Integration Specialist</td>
-												<td>Sidney</td>
-												<td>37</td>
-												<td>2011/06/02</td>
-												<td>$95,400</td>
-											</tr>
-											<tr>
-												<td>Suki Burks</td>
-												<td>Developer</td>
-												<td>London</td>
-												<td>53</td>
-												<td>2009/10/22</td>
-												<td>$114,500</td>
-											</tr>
-											<tr>
-												<td>Prescott Bartlett</td>
-												<td>Technical Author</td>
-												<td>London</td>
-												<td>27</td>
-												<td>2011/05/07</td>
-												<td>$145,000</td>
-											</tr>
-											<tr>
-												<td>Gavin Cortez</td>
-												<td>Team Leader</td>
-												<td>San Francisco</td>
-												<td>22</td>
-												<td>2008/10/26</td>
-												<td>$235,500</td>
-											</tr>
-											<tr>
-												<td>Martena Mccray</td>
-												<td>Post-Sales support</td>
-												<td>Edinburgh</td>
-												<td>46</td>
-												<td>2011/03/09</td>
-												<td>$324,050</td>
-											</tr>
-											<tr>
-												<td>Unity Butler</td>
-												<td>Marketing Designer</td>
-												<td>San Francisco</td>
-												<td>47</td>
-												<td>2009/12/09</td>
-												<td>$85,675</td>
-											</tr>
-											<tr>
-												<td>Howard Hatfield</td>
-												<td>Office Manager</td>
-												<td>San Francisco</td>
-												<td>51</td>
-												<td>2008/12/16</td>
-												<td>$164,500</td>
-											</tr>
-											<tr>
-												<td>Hope Fuentes</td>
-												<td>Secretary</td>
-												<td>San Francisco</td>
-												<td>41</td>
-												<td>2010/02/12</td>
-												<td>$109,850</td>
-											</tr>
-											<tr>
-												<td>Vivian Harrell</td>
-												<td>Financial Controller</td>
-												<td>San Francisco</td>
-												<td>62</td>
-												<td>2009/02/14</td>
-												<td>$452,500</td>
-											</tr>
-											<tr>
-												<td>Timothy Mooney</td>
-												<td>Office Manager</td>
-												<td>London</td>
-												<td>37</td>
-												<td>2008/12/11</td>
-												<td>$136,200</td>
-											</tr>
-											<tr>
-												<td>Jackson Bradshaw</td>
-												<td>Director</td>
-												<td>New York</td>
-												<td>65</td>
-												<td>2008/09/26</td>
-												<td>$645,750</td>
-											</tr>
-											<tr>
-												<td>Olivia Liang</td>
-												<td>Support Engineer</td>
-												<td>Singapore</td>
-												<td>64</td>
-												<td>2011/02/03</td>
-												<td>$234,500</td>
-											</tr>
-											<tr>
-												<td>Bruno Nash</td>
-												<td>Software Engineer</td>
-												<td>London</td>
-												<td>38</td>
-												<td>2011/05/03</td>
-												<td>$163,500</td>
-											</tr>
-											<tr>
-												<td>Sakura Yamamoto</td>
-												<td>Support Engineer</td>
-												<td>Tokyo</td>
-												<td>37</td>
-												<td>2009/08/19</td>
-												<td>$139,575</td>
-											</tr>
-											<tr>
-												<td>Thor Walton</td>
-												<td>Developer</td>
-												<td>New York</td>
-												<td>61</td>
-												<td>2013/08/11</td>
-												<td>$98,540</td>
-											</tr>
-											<tr>
-												<td>Finn Camacho</td>
-												<td>Support Engineer</td>
-												<td>San Francisco</td>
-												<td>47</td>
-												<td>2009/07/07</td>
-												<td>$87,500</td>
-											</tr>
-											<tr>
-												<td>Serge Baldwin</td>
-												<td>Data Coordinator</td>
-												<td>Singapore</td>
-												<td>64</td>
-												<td>2012/04/09</td>
-												<td>$138,575</td>
-											</tr>
-											<tr>
-												<td>Zenaida Frank</td>
-												<td>Software Engineer</td>
-												<td>New York</td>
-												<td>63</td>
-												<td>2010/01/04</td>
-												<td>$125,250</td>
-											</tr>
-											<tr>
-												<td>Zorita Serrano</td>
-												<td>Software Engineer</td>
-												<td>San Francisco</td>
-												<td>56</td>
-												<td>2012/06/01</td>
-												<td>$115,000</td>
-											</tr>
-											<tr>
-												<td>Jennifer Acosta</td>
-												<td>Junior Javascript Developer</td>
-												<td>Edinburgh</td>
-												<td>43</td>
-												<td>2013/02/01</td>
-												<td>$75,650</td>
-											</tr>
-											<tr>
-												<td>Cara Stevens</td>
-												<td>Sales Assistant</td>
-												<td>New York</td>
-												<td>46</td>
-												<td>2011/12/06</td>
-												<td>$145,600</td>
-											</tr>
-											<tr>
-												<td>Hermione Butler</td>
-												<td>Regional Director</td>
-												<td>London</td>
-												<td>47</td>
-												<td>2011/03/21</td>
-												<td>$356,250</td>
-											</tr>
-											<tr>
-												<td>Lael Greer</td>
-												<td>Systems Administrator</td>
-												<td>London</td>
-												<td>21</td>
-												<td>2009/02/27</td>
-												<td>$103,500</td>
-											</tr>
-											<tr>
-												<td>Jonas Alexander</td>
-												<td>Developer</td>
-												<td>San Francisco</td>
-												<td>30</td>
-												<td>2010/07/14</td>
-												<td>$86,500</td>
-											</tr>
-											<tr>
-												<td>Shad Decker</td>
-												<td>Regional Director</td>
-												<td>Edinburgh</td>
-												<td>51</td>
-												<td>2008/11/13</td>
-												<td>$183,000</td>
-											</tr>
-											<tr>
-												<td>Michael Bruce</td>
-												<td>Javascript Developer</td>
-												<td>Singapore</td>
-												<td>29</td>
-												<td>2011/06/27</td>
-												<td>$183,000</td>
-											</tr>
-											<tr>
-												<td>Donna Snider</td>
-												<td>Customer Support</td>
-												<td>New York</td>
-												<td>27</td>
-												<td>2011/01/25</td>
-												<td>$112,000</td>
-											</tr>
 										</tbody>
 										<tfoot>
 											<tr>
@@ -492,15 +271,204 @@
 								</div>
 							</div>
 						</div>
-                        
+						<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+						<script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+						<script src="https://cdn.datatables.net/buttons/1.7.1/js/dataTables.buttons.min.js"></script>
+						<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+						<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+						<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+						<script src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.html5.min.js"></script>
+						<script src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.print.min.js"></script>
+						<script src="//cdn.datatables.net/plug-ins/1.10.25/i18n/French.json"></script>
 
 	<script>
 		document.addEventListener("DOMContentLoaded", function() {
 			// Datatables with Buttons
 			var datatablesButtons = $('#datatables-buttons').DataTable({
 				lengthChange: !1,
-				buttons: ["copy", "print"],
-				responsive: true
+				dom: 'Bfrtip',
+				buttons: ['pdf','excel'],
+				responsive: true ,
+				language: 
+            		{
+    "emptyTable": "Aucune donnée disponible dans le tableau",
+    "lengthMenu": "Afficher _MENU_ éléments",
+    "loadingRecords": "Chargement...",
+    "processing": "Traitement...",
+    "zeroRecords": "Aucun élément correspondant trouvé",
+    "paginate": {
+        "first": "Premier",
+        "last": "Dernier",
+        "previous": "Précédent",
+        "next": "Suiv"
+    },
+    "aria": {
+        "sortAscending": ": activer pour trier la colonne par ordre croissant",
+        "sortDescending": ": activer pour trier la colonne par ordre décroissant"
+    },
+    "select": {
+        "rows": {
+            "_": "%d lignes sélectionnées",
+            "0": "Aucune ligne sélectionnée",
+            "1": "1 ligne sélectionnée"
+        },
+        "1": "1 ligne selectionnée",
+        "_": "%d lignes selectionnées",
+        "cells": {
+            "1": "1 cellule sélectionnée",
+            "_": "%d cellules sélectionnées"
+        },
+        "columns": {
+            "1": "1 colonne sélectionnée",
+            "_": "%d colonnes sélectionnées"
+        }
+    },
+    "autoFill": {
+        "cancel": "Annuler",
+        "fill": "Remplir toutes les cellules avec <i>%d<\/i>",
+        "fillHorizontal": "Remplir les cellules horizontalement",
+        "fillVertical": "Remplir les cellules verticalement",
+        "info": "Exemple de remplissage automatique"
+    },
+    "searchBuilder": {
+        "conditions": {
+            "date": {
+                "after": "Après le",
+                "before": "Avant le",
+                "between": "Entre",
+                "empty": "Vide",
+                "equals": "Egal à",
+                "not": "Différent de",
+                "notBetween": "Pas entre",
+                "notEmpty": "Non vide"
+            },
+            "number": {
+                "between": "Entre",
+                "empty": "Vide",
+                "equals": "Egal à",
+                "gt": "Supérieur à",
+                "gte": "Supérieur ou égal à",
+                "lt": "Inférieur à",
+                "lte": "Inférieur ou égal à",
+                "not": "Différent de",
+                "notBetween": "Pas entre",
+                "notEmpty": "Non vide"
+            },
+            "string": {
+                "contains": "Contient",
+                "empty": "Vide",
+                "endsWith": "Se termine par",
+                "equals": "Egal à",
+                "not": "Différent de",
+                "notEmpty": "Non vide",
+                "startsWith": "Commence par"
+            },
+            "array": {
+                "equals": "Egal à",
+                "empty": "Vide",
+                "contains": "Contient",
+                "not": "Différent de",
+                "notEmpty": "Non vide",
+                "without": "Sans"
+            }
+        },
+        "add": "Ajouter une condition",
+        "button": {
+            "0": "Recherche avancée",
+            "_": "Recherche avancée (%d)"
+        },
+        "clearAll": "Effacer tout",
+        "condition": "Condition",
+        "data": "Donnée",
+        "deleteTitle": "Supprimer la règle de filtrage",
+        "logicAnd": "Et",
+        "logicOr": "Ou",
+        "title": {
+            "0": "Recherche avancée",
+            "_": "Recherche avancée (%d)"
+        },
+        "value": "Valeur"
+    },
+    "searchPanes": {
+        "clearMessage": "Effacer tout",
+        "count": "{total}",
+        "title": "Filtres actifs - %d",
+        "collapse": {
+            "0": "Volet de recherche",
+            "_": "Volet de recherche (%d)"
+        },
+        "countFiltered": "{shown} ({total})",
+        "emptyPanes": "Pas de volet de recherche",
+        "loadMessage": "Chargement du volet de recherche..."
+    },
+    "buttons": {
+        "copyKeys": "Appuyer sur ctrl ou u2318 + C pour copier les données du tableau dans votre presse-papier.",
+        "collection": "Collection",
+        "colvis": "Visibilité colonnes",
+        "colvisRestore": "Rétablir visibilité",
+        "copy": "Copier",
+        "copySuccess": {
+            "1": "1 ligne copiée dans le presse-papier",
+            "_": "%ds lignes copiées dans le presse-papier"
+        },
+        "copyTitle": "Copier dans le presse-papier",
+        "csv": "CSV",
+        "excel": "Excel",
+        "pageLength": {
+            "-1": "Afficher toutes les lignes",
+            "1": "Afficher 1 ligne",
+            "_": "Afficher %d lignes"
+        },
+        "pdf": "PDF",
+        "print": "Imprimer"
+    },
+    "decimal": ",",
+    "info": "Affichage de _START_ à _END_ sur _TOTAL_ éléments",
+    "infoEmpty": "Affichage de 0 à 0 sur 0 éléments",
+    "infoThousands": ".",
+    "search": "Rechercher:",
+    "searchPlaceholder": "...",
+    "thousands": ".",
+    "infoFiltered": "(filtrés depuis un total de _MAX_ éléments)",
+    "datetime": {
+        "previous": "Précédent",
+        "next": "Suivant",
+        "hours": "Heures",
+        "minutes": "Minutes",
+        "seconds": "Secondes",
+        "unknown": "-",
+        "amPm": [
+            "am",
+            "pm"
+        ]
+    },
+    "editor": {
+        "close": "Fermer",
+        "create": {
+            "button": "Nouveaux",
+            "title": "Créer une nouvelle entrée",
+            "submit": "Envoyer"
+        },
+        "edit": {
+            "button": "Editer",
+            "title": "Editer Entrée",
+            "submit": "Modifier"
+        },
+        "remove": {
+            "button": "Supprimer",
+            "title": "Supprimer",
+            "submit": "Supprimer"
+        },
+        "error": {
+            "system": "Une erreur système s'est produite"
+        },
+        "multi": {
+            "title": "Valeurs Multiples",
+            "restore": "Rétablir Modification"
+        }
+    }
+
+        }
 			});
 			datatablesButtons.buttons().container().appendTo("#datatables-buttons_wrapper .col-md-6:eq(0)")
 		});

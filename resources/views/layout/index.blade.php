@@ -48,7 +48,6 @@
 			<a class="sidebar-brand" href="javascript:void(0)">
 			<img src="img/armadillo_inverted.png" style="width: 26%; ">
 				<img src="img/armadillostr_inverted.png" style="width: 69%">
-				</img>
 			</a>
 			<div class="sidebar-content">
 				<div class="sidebar-user">
