@@ -1,0 +1,106 @@
+					
+                    
+    <!DOCTYPE html>
+<html lang="en">
+
+
+<!-- Mirrored from spark.bootlab.io/forms-editors.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 28 Jun 2021 22:21:55 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="Modern, flexible and responsive Bootstrap 5 admin &amp; dashboard template">
+	<meta name="author" content="Bootlab">
+
+	<title>Spark - Bootstrap 5 Admin &amp; Dashboard Template</title>
+
+	<link href="css/modern.css" rel="stylesheet"> 
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-120946860-7"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-120946860-7');
+</script></head>
+
+<body>                
+                    <div class="row">
+						<div class="col-12">
+							<div class="card">
+								<div class="card-header">
+                                <button type="submit" class="btn mb-1 btn-success" style="margin-left: 90%;" onclick="ai();"><i class="ion ion-ios-send me-2"></i> Send</button>
+								</div>
+								<div class="card-body">
+									<div class="clearfix">
+										<div id="quill-toolbar">
+											<span class="ql-formats">
+												<select class="ql-size"></select>
+											</span>
+											<span class="ql-formats">
+												<button class="ql-bold"></button>
+												<button class="ql-italic"></button>
+												<button class="ql-underline"></button>
+												<button class="ql-strike"></button>
+											</span>
+											<span class="ql-formats">
+												<select class="ql-color"></select>
+												<select class="ql-background"></select>
+											</span>
+											<span class="ql-formats">
+												<button class="ql-script" value="sub"></button>
+												<button class="ql-script" value="super"></button>
+											</span>
+											<span class="ql-formats">
+												<button class="ql-header" value="1"></button>
+												<button class="ql-header" value="2"></button>
+												<button class="ql-blockquote"></button>
+												<button class="ql-code-block"></button>
+											</span>
+											<span class="ql-formats">
+												<button class="ql-list" value="ordered"></button>
+												<button class="ql-list" value="bullet"></button>
+												<button class="ql-indent" value="-1"></button>
+												<button class="ql-indent" value="+1"></button>
+											</span>
+											<span class="ql-formats">
+												<button class="ql-direction" value="rtl"></button>
+												<select class="ql-align"></select>
+											</span>
+											<span class="ql-formats">
+												<button class="ql-link"></button>
+											</span>
+											<span class="ql-formats">
+												<button class="ql-clean"></button>
+											</span>
+										</div>
+										<div id="quill-editor"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+	<script src="js/app.js"></script>
+
+	<script>
+		document.addEventListener("DOMContentLoaded", function() {
+			if (!window.Quill) {
+				return $("#quill-editor,#quill-toolbar,#quill-bubble-editor,#quill-bubble-toolbar").remove();
+			}
+			var editor = new Quill("#quill-editor", {
+				modules: {
+					toolbar: "#quill-toolbar"
+				},
+				placeholder: "Type something",
+				theme: "snow"
+			});
+		});
+
+            var editor_content = quill.container.firstChild.innerHTML;
+            
+            function ai(){
+            alert(editor_content);
+            }
+	</script>
+</body>
