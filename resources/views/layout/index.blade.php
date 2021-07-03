@@ -46,10 +46,9 @@
 	<div class="wrapper">
 		<nav id="sidebar" class="sidebar">
 			<a class="sidebar-brand" href="javascript:void(0)">
-				<svg>
-					<use xlink:href="#ion-ios-pulse-strong"></use>
-				</svg>
-				Armadillo
+			<img src="img/armadillo_inverted.png" style="width: 26%; ">
+				<img src="img/armadillostr_inverted.png" style="width: 69%">
+				</img>
 			</a>
 			<div class="sidebar-content">
 				<div class="sidebar-user">
