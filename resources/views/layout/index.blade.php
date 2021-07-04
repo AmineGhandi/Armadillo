@@ -18,7 +18,7 @@
 	<!-- <link href="css/classic.css" rel="stylesheet"> -->
 	<!-- <link href="css/dark.css" rel="stylesheet"> -->
 	<!-- <link href="css/light.css" rel="stylesheet"> -->
-	<link rel="icon" href="img/armadillologo.png" />
+	<link rel="icon" href="img/armadillo_inverted.ico" />
 	<!-- BEGIN SETTINGS -->
 	<!-- You can remove this after picking a style -->
 	<style>
