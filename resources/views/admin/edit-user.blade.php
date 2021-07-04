@@ -129,7 +129,7 @@
             <div class="row">
                 <div class="col-sm-9">
             <button type="submit" class="btn btn-primary">Sauvegarder</button>
-			<a href="{{route('Admin')}}" class="btn btn-secondary">Annuler</a>
+			<a href="{{route('Admin')}}" class="btn btn-info">Annuler</a>
                 </div>
                 <div class="col-sm-3">
                     <button type="button" data-bs-toggle="modal" data-bs-target="#DeleteModal" class="btn btn-danger">Supprimer cet utilisateur</button>
@@ -151,7 +151,7 @@
         </div>
         <div class="modal-footer">
           <a href="{{url('/delete-user/'.$user->id)}}" class="btn btn-danger">Supprimer</a>
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+          <button type="button" class="btn btn-info" data-bs-dismiss="modal">Annuler</button>
         </div>
       </div>
     </div>

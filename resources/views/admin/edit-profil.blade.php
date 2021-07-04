@@ -113,7 +113,7 @@
                 <input type="file" name="img">
             </div>
             <button type="submit" class="btn btn-primary">Sauvegarder</button>
-			<a href="{{route('Admin')}}" class="btn btn-secondary">Annuler</a>
+			<a href="{{route('Admin')}}" class="btn btn-info">Annuler</a>
         </form>
     </div>
 </div>
