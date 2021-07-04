@@ -74,13 +74,24 @@
 								<div class="card-header">
 									<div class="row">
 										<div class="col-sm-6">
-											<h2 class="card-title">Utilisateurs</h2>
+											<h2 class="card-title">Liste des Utilisateurs</h2>
 										</div>
 										<div class="col-sm-6">
 											@if (Session::get('success'))									  
 										<div class="alert alert-success alert-dismissible" role="alert">
 											<div class="alert-message">
 												{{Session::get('success')}}
+
+											</div>
+
+											<button type="button" class="btn-close btn-close-white" data-bs-dismiss="alert" aria-label="Close"></button>
+										</div>
+          					
+      									@endif
+										  @if (Session::get('deleted'))									  
+										<div class="alert alert-danger alert-dismissible" role="alert">
+											<div class="alert-message">
+												{{Session::get('deleted')}}
 
 											</div>
 
@@ -109,7 +120,7 @@
 												<td>{{$util->prenom}}</td>
 												<td>{{$util->email}}</td>
 												<td>{{$util->role}}</td>
-												<td><a href="#" class="btn btn-primary">
+												<td><a href="{{url('/edit-user'. $util->id)}}" class="btn btn-primary">
 													<i class="fas  fa-cogs"></i>
 												</a>
 												</td>

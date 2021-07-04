@@ -174,4 +174,65 @@ class UtilisateursController extends Controller
     return redirect()->route('Admin')->with('success','Utilisateur ajouté avec succés');
 
     }
+    public function editUser($id){
+        $data = ['LoggedUserInfo' =>Utilisateurs::where('id','=',session('LoggedUser'))->first() ];
+        $user = Utilisateurs::find($id);
+        return view('admin.edit-user', $data , compact('user'));
+
+    }
+    public function updateUser($id , Request $request){
+        $validatedata = $request->validate([
+            'nom' => 'required|regex:/^[a-zA-Z]+$/u|min:3|max:255',
+            'prenom' => 'required|regex:/^[a-zA-Z]+$/u|min:3|max:255',
+            'email' => 'required|regex:/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix',
+            'mdp'=> 'required|min:8|max:55',
+        ],
+    [
+        'nom.required' => 'veullez remplire le champ du nom',
+        'prenom.required' => 'veullez remplire le champ du prenom',
+        'nom.regex' => 'le nom ne doit contenir que des lettres',
+        'prenom.regex' => 'le prenom ne doit contenir que des lettres',
+        'nom.min' => 'le nom est très court ',
+        'prenom.min' => 'le prenom est très court ',
+        'email.required' => 'veuillez remplire le champ email',
+        'email.regex' => 'format email incorrect',
+        'mdp.required' => 'veuillez remplire de champ du mot de passe',
+        'mdp.min' => 'le mot de passe ne doit etre superieur a 8 caracteres',
+    ]
+    );
+
+        $user = Utilisateurs::find($id);
+        
+
+        
+
+        $user->nom = $request->nom;
+        $user->prenom = $request->prenom;
+        $user->email = $request->email;
+        $user->mdp = $request->mdp;
+        $user->role = $request->role;
+        if($request->hasFile('img')){
+        $user_img = $request->file('img');
+        $name_gen = hexdec(uniqid());
+        $image_ext = strtolower($user_img->getClientOriginalExtension());
+        $image_name = $name_gen . '.' . $image_ext;
+        $up_location = 'image/utilisateurs/';
+        $last_img = $up_location . $image_name ;
+        $user_img->move($up_location,$image_name);
+        $user->img = $last_img;
+
+        }
+             
+        
+        
+
+        $user->save();
+
+        return redirect(route('Admin'))->with('success','Informations modifiées avec succès!');
+    }
+    public function deleteUser($id){
+        $user = Utilisateurs::find($id);
+        $user->delete();
+        return redirect(route('Admin'))->with('deleted','Utilisateur supprimé avec succés');
+    }
 }
