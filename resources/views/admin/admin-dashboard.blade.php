@@ -48,7 +48,7 @@
 		</a>
 		<ul id="forms" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
 			<li class="sidebar-item"><a class="sidebar-link" href="#">Envoyer a plusieurs clients</a></li>
-			<li class="sidebar-item"><a class="sidebar-link" href="#">Envoyer a un seul client</a></li>
+			<li class="sidebar-item"><a class="sidebar-link" href="{{route('email.index')}}">Envoyer a un seul client</a></li>
 		</ul>
 	</li>
 	<li class="sidebar-header">

@@ -35,7 +35,8 @@ Route::group(['middleware'=>['AuthCheck']],function(){
     Route::get('/edit-user{id}',[UtilisateursController::class,'editUser']);
     Route::post('/update-user/{id}',[UtilisateursController::class,'updateUser']);
     Route::get('/delete-user/{id}', [UtilisateursController::class , 'deleteUser']);
-    Route::get('contact',[ContactController::class, 'index']);    
+    Route::get('contact',[ContactController::class, 'index'])->name('email.index');
+    Route::post('contact',[ContactController::class, 'index'])->name('email.index');
     Route::post('send',[ContactController::class, 'send'])->name('email.send');
 
 });  

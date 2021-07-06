@@ -40,10 +40,11 @@ class ContactController extends Controller
         $mail->Body    = $message;
         $dt = $mail->send();
         $mail ->smtpClose();
-        if($dt){
-            echo 'Email has been sent successfully';
-        } else{
-            echo 'Something went wrong';
+        if( !$mail->send() ) {
+            return back()->with("failed", "Email not sent.")->withErrors($mail->ErrorInfo);
+           
+        }else {
+            return back()->with("success", "Email has been sent.");
         }
     }
 }
