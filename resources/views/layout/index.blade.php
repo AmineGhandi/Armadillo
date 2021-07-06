@@ -36,7 +36,9 @@
   gtag('js', new Date());
 
   gtag('config', 'UA-120946860-7');
-</script></head>
+</script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
 
 <body>
 	<div class="splash active">

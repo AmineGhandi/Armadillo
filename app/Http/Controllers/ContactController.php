@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\UtilisateursController;
+use App\Models\Utilisateurs;
 use Illuminate\Http\Request;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
@@ -11,12 +12,13 @@ use PHPMailer\PHPMailer\Exception;
 class ContactController extends Controller
 {
     function index(){
-        return view('email.index');
+        $data = ['LoggedUserInfo' =>Utilisateurs::where('id','=',session('LoggedUser'))->first() ];
+        return view('email.index', $data);
     }
     function send(Request $request){
         $name = $request ->name;
         $email = $request ->email;
-        $bcc = $request ->bcc;
+        // $bcc = $request ->bcc;
         $subject = $request ->subject;
         $message = $request ->message;
 
@@ -33,18 +35,24 @@ class ContactController extends Controller
         $mail->Port       = 587;
         $mail->setFrom($email, $name); 
         $mail->addAddress($email);
-        $mail->addBCC($bcc);
+        // $mail->addBCC($bcc);
 
         $mail->isHTML(true);  
         $mail->Subject =  $subject;
         $mail->Body    = $message;
         $dt = $mail->send();
         $mail ->smtpClose();
-        if( !$mail->send() ) {
-            return back()->with("failed", "Email not sent.")->withErrors($mail->ErrorInfo);
-           
-        }else {
+        if($dt){
             return back()->with("success", "Email has been sent.");
+        } else{
+            echo 'Something went wrong';
         }
+        
+        // if( !$mail->send() ) {
+        //     return back()->with("failed", "Email not sent.")->withErrors($mail->ErrorInfo);
+           
+        // }else {
+        //     return back()->with("success", "Email has been sent.");
+        // }
     }
 }
