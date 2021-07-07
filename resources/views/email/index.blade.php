@@ -74,10 +74,21 @@
 				 <label>Name</label>
 				 <input type="text" name="name"  class="form-control" placeholder="Enter Name">
 			 </div>
-			 <div class="form-group">
+			
+			 <div class="mb-3">
+                <label class="form-label">Email</label>
+                <select name="role" class="form-control"> 
+					<option disabled selected>Select an email</option>
+					@foreach ($utilisateurs as $util)
+                    <option id="email" name="email" value="{{$util->email}}" {{($util->email == $utilisateurs) ? 'selected' : '' }}>{{$util->email}}</option>
+					@endforeach
+                </select>
+            </div>
+			
+			 <!-- <div class="form-group">
 				 <label>Email</label>
 				 <input type="email" id="email" name="email" class="form-control" placeholder="Enter Email">
-			 </div>
+			 </div> -->
 			 <div class="form-group">
 				 <label>Subject</label>
 				 <input type="text" name="subject" class="form-control" placeholder="Enter Subject">
@@ -94,12 +105,12 @@
 	</div>
   </form>
 @if (Session::get('success'))
-<script>
+<script type='text/javascript'>
 	  
 	Swal.fire({
 position: 'top-end',
 icon: 'success',
-title: {{Session::get('success')}},
+title: 'YES YES YES',
 showConfirmButton: false,
 timer: 3000
 })

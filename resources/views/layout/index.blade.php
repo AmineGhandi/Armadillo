@@ -2,8 +2,7 @@
 <html lang="en">
 
 
-<!-- Mirrored from spark.bootlab.io/dashboard-default.html?theme=modern by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 28 Jun 2021 22:22:18 GMT -->
-<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,22 +12,18 @@
 
 	<title>Armadillo</title>
 
-	<!-- PICK ONE OF THE STYLES BELOW -->
+	
 	<link href="css/modern.css" rel="stylesheet">
-	<!-- <link href="css/classic.css" rel="stylesheet"> -->
-	<!-- <link href="css/dark.css" rel="stylesheet"> -->
-	<!-- <link href="css/light.css" rel="stylesheet"> -->
+
 	<link rel="icon" href="img/armadillo_inverted.ico" />
-	<!-- BEGIN SETTINGS -->
-	<!-- You can remove this after picking a style -->
+
 	<style>
 		body {
 			opacity: 0;
 		}
 	</style>
 	<script src="{{asset('js/settings.js')}}"></script>
-	<!-- END SETTINGS -->
-<!-- Global site tag (gtag.js) - Google Analytics -->
+
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-120946860-7"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -325,6 +320,4 @@
 
 </body>
 
-
-<!-- Mirrored from spark.bootlab.io/dashboard-default.html?theme=modern by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 28 Jun 2021 22:22:18 GMT -->
 </html>

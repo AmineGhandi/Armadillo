@@ -43,5 +43,6 @@ Route::group(['middleware'=>['AuthCheck']],function(){
     //Send Email
     Route::get('contact',[ContactController::class, 'index'])->name('email.index');
     Route::post('send',[ContactController::class, 'send'])->name('email.send');
+    //send multiple emails
 
 });  
