@@ -66,11 +66,10 @@
 
 <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 
-<form action="{{ route('email.send') }}" method="post">
+<form action="{{ route('multimail.send') }}" method="post">
 	@csrf
 	<div class="card">
 	  <div class="card-header">
-	  
 	  </div>
 	  <div class="card-body">
 			<div class="form-group">
@@ -80,16 +79,23 @@
 			 <div class="mb-3">
                 <label class="form-label">Email</label>
 				</br>
-				              <!-- .. -->
                 <select name="email" class="select2 form-control" style="width: 100%"> 
-					<!-- multiple -->
-					<option disabled selected style="font-size: 12%;">Select an email</option>
+				<option disabled selected>select an option</option>
 					@foreach ($utilisateurs as $util)
                     <option value="{{$util->email}}">{{$util->email}}</option>
 					@endforeach
                 </select>
             </div>
-			
+            <div class="mb-3">
+                <label class="form-label">Cc</label>
+				</br>     
+                <select name="bcc[]" class="select2 " style="width: 100%" multiple> 
+				<option disabled selected>select an option</option>
+					@foreach ($utilisateurs as $util)
+                    <option value="{{$util->email}}">{{$util->email}}</option>
+					@endforeach
+                </select>
+            </div>
 			 <!-- <div class="form-group">
 				 <label>Email</label>
 				 <input type="email" id="email" name="email" class="form-control" placeholder="Enter Email">

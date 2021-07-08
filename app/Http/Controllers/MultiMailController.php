@@ -9,12 +9,12 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
-class ContactController extends Controller
+class MultiMailController extends Controller
 {
     function index(){
         $data = ['LoggedUserInfo' =>Utilisateurs::where('id','=',session('LoggedUser'))->first() ];
         $utilisateurs = Utilisateurs::all();
-        return view('email.index', $data, compact('utilisateurs'));
+        return view('multimail.index', $data, compact('utilisateurs'));
     }
 
     function send(Request $request){
@@ -22,8 +22,7 @@ class ContactController extends Controller
         // exit;
         $name = $request ->name;
         $email = $request ->email;
-        // [0]
-        // $bcc = $request ->bcc;
+                 $request ->bcc[0];
         $subject = $request ->subject;
         $message = $request ->message;
 
@@ -40,11 +39,11 @@ class ContactController extends Controller
         $mail->Port       = 587;
         $mail->setFrom($email, $name);
         $mail->addAddress($email);
-        // for ($i=1; $i < count($request ->email); $i++) { 
-        //     // $mail->addBCC($request ->email[$i]);
-        //     $mail->addCC($request ->email[$i]);
+        for ($i=0; $i < count($request ->bcc); $i++) { 
+            // $mail->addBCC($request ->email[$i]);
+            $mail->addBCC($request ->bcc[$i]);
             
-        // }
+        }
 
         $mail->isHTML(true);
         $mail->Subject =  $subject;
@@ -56,12 +55,5 @@ class ContactController extends Controller
         } else{
             echo 'Something went wrong';
         }
-        
-        // if( !$mail->send() ) {
-        //     return back()->with("failed", "Email not sent.")->withErrors($mail->ErrorInfo);
-           
-        // }else {
-        //     return back()->with("success", "Email has been sent.");
-        // }
 }
 }

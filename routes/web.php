@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\UtilisateursController;
+use App\Http\Controllers\MultiMailController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -41,10 +42,11 @@ Route::group(['middleware'=>['AuthCheck']],function(){
     //Delete user(Admin-only feature)
     Route::get('/delete-user/{id}', [UtilisateursController::class , 'deleteUser']);
     //Send Email
-    Route::get('contact',[ContactController::class, 'index'])->name('email.index');
-    Route::post('send',[ContactController::class, 'send'])->name('email.send');
+    Route::get('/contact',[ContactController::class, 'index'])->name('email.index');
+    Route::post('/send',[ContactController::class, 'send'])->name('email.send');
     //send multiple emails
-
+    Route::get('/email',[MultiMailController::class, 'index'])->name('multimail.index');
+    Route::post('/sendd',[MultiMailController::class, 'send'])->name('multimail.send');
     //Create Client
     Route::get('/create-client',[UtilisateursController::class,'createClient'])->name('createClient');
     Route::post('/insert-client',[UtilisateursController::class,'insertClient'])->name('insertClient');
