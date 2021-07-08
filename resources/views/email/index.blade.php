@@ -74,13 +74,14 @@
 				 <label>Name</label>
 				 <input type="text" name="name"  class="form-control" placeholder="Enter Name">
 			 </div>
-			
 			 <div class="mb-3">
                 <label class="form-label">Email</label>
-                <select name="role" class="form-control"> 
+				              <!-- .. -->
+                <select name="email" class="form-control" > 
+					<!-- multiple -->
 					<option disabled selected>Select an email</option>
 					@foreach ($utilisateurs as $util)
-                    <option id="email" name="email" value="{{$util->email}}" {{($util->email == $utilisateurs) ? 'selected' : '' }}>{{$util->email}}</option>
+                    <option id="email"  value="{{$util->email}}">{{$util->email}}</option>
 					@endforeach
                 </select>
             </div>

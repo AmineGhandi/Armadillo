@@ -52,7 +52,6 @@
 					<div class="fw-bold">{{$LoggedUserInfo['prenom']}} {{$LoggedUserInfo['nom']}}</div>
 					<small>{{$LoggedUserInfo['role']}}</small>
 				</div>
-
 				@yield('Sidebar')
 			</div>
 		</nav>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Utilisateurs;
 use Hamcrest\Util;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UtilisateursController extends Controller
 {
@@ -13,6 +14,7 @@ class UtilisateursController extends Controller
     }
     public function login(){
         return view('auth.login');
+
     }
     public function check(Request $request){
         $request->validate([
