@@ -23,7 +23,7 @@ class CreateClientsTable extends Migration
             $table->date('date_naiss');
             $table->string('adress');
             $table->string('rib');
-            $table->string('signature');
+            $table->string('signature')->default('-');
             $table->timestamps();
         });
     }

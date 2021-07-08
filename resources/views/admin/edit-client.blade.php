@@ -61,19 +61,18 @@
 	</li>
 </ul>
 @endsection
-
 @section('page-body')
 <div class="card">
     <div class="card-header">
-        <h5 class="card-title">Modification des informations d'un utilisateur</h5>
-        <h6 class="card-subtitle text-muted">Vous pouvez modifier ou supprimer cet utilisateur.</h6>
+        <h5 class="card-title">Creation d'un client</h5>
+        <h6 class="card-subtitle text-muted">Merci de remplir le formulaire avec les informations necessaires.</h6>
     </div>
     <div class="card-body">
-        <form action="{{url('/update-user/'. $user->id)}}" method="POST" enctype="multipart/form-data">
+        <form action="{{url('/update-client/'. $client->id)}}" method="POST">
 			@csrf
             <div class="mb-3">
                 <label class="form-label">Email</label>
-                <input type="text" class="form-control" value="{{$user->email}}" name="email"  placeholder="Email">
+                <input type="text" class="form-control" value="{{$client->email}}" name="email"  placeholder="Email">
                 @error('email')
             <div class="text-danger">
               {{$message}}
@@ -82,7 +81,7 @@
             </div>
 			<div class="mb-3">
                 <label class="form-label">Nom</label>
-                <input type="text" class="form-control" value="{{$user->nom}}" name="nom" placeholder="Nom">
+                <input type="text" class="form-control" value="{{$client->nom}}" name="nom" placeholder="Nom">
                 @error('nom')
             <div class="text-danger">
               {{$message}}
@@ -91,7 +90,7 @@
             </div>
 			<div class="mb-3">
                 <label class="form-label">Prenom</label>
-                <input type="text" class="form-control" value="{{$user->prenom}}" name="prenom" placeholder="Prenom">
+                <input type="text" class="form-control" value="{{$client->prenom}}" name="prenom" placeholder="Prenom">
                 @error('prenom')
             <div class="text-danger">
               {{$message}}
@@ -99,39 +98,57 @@
           @enderror
             </div>
             <div class="mb-3">
-                <label class="form-label">Mot de passe</label>
-                <input type="password" class="form-control" name="mdp" value="{{$user->mdp}}" placeholder="Mot de passe">
-                @error('mdp')
+                <label class="form-label">Tel</label>
+                <input type="string" class="form-control" name="tel" value="{{$client->tel}}" placeholder="Numero de telephone">
+                @error('tel')
             <div class="text-danger">
               {{$message}}
             </div>
           @enderror
             </div>
             <div class="mb-3">
-                <label class="form-label w-100">Changer votre photo de profil</label>
-                <input type="file" name="img">
-                @error('img')
+                <label class="form-label">Ville</label>
+                <input type="text" class="form-control" value="{{$client->ville}}" name="ville" placeholder="Ville">
+                @error('ville')
             <div class="text-danger">
               {{$message}}
             </div>
           @enderror
             </div>
             <div class="mb-3">
-                <label class="form-label">Role</label>
-                <select name="role" class="form-control">
-                    <option value="Admin" {{$user->role == "Admin" ? 'selected' : '' }} >Admin</option>
-                    <option value="Superviseur" {{$user->role == "Superviseur" ? 'selected' : '' }}>Superviseur</option>
-                    <option value="Agent impression" {{$user->role == "Agent impression" ? 'selected' : '' }}>Agent impression</option>
-                    <option value="Agent mailing" {{$user->role == "Agent mailing" ? 'selected' : '' }}>Agent mailing</option>
-                </select>
+                <label class="form-label">Date de naissance</label>
+                <input type="date" class="form-control" value="{{$client->date_naiss}}" name="date_naiss" placeholder="Date de naissance">
+                @error('date_naiss')
+            <div class="text-danger">
+              {{$message}}
+            </div>
+          @enderror
+            </div>
+            <div class="mb-3">
+                <label class="form-label">RIB</label>
+                <input type="text" class="form-control" value="{{$client->rib}}" name="rib" placeholder="Votre numero RIB">
+                @error('rib')
+            <div class="text-danger">
+              {{$message}}
+            </div>
+          @enderror
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Adresse</label>
+                <textarea  class="form-control" rows="3" name="adress" placeholder="les details d'adresse">{{$client->adress}}</textarea>
+                @error('adress')
+            <div class="text-danger">
+              {{$message}}
+            </div>
+          @enderror
             </div>
             <div class="row">
                 <div class="col-sm-9">
-            <button type="submit" class="btn btn-primary">Sauvegarder</button>
-			<a href="{{route('Admin')}}" class="btn btn-info">Annuler</a>
+                    <button type="submit" class="btn btn-primary">Sauvegarder</button>
+                    <a href="{{route('Admin')}}" class="btn btn-info">Annuler</a>
                 </div>
                 <div class="col-sm-3">
-                    <button type="button" data-bs-toggle="modal" data-bs-target="#DeleteModal" class="btn btn-danger">Supprimer cet utilisateur</button>
+                    <button type="button" data-bs-toggle="modal" data-bs-target="#DeleteModal" class="btn btn-danger">Supprimer ce client</button>
                 </div>
             </div>
         </form>
@@ -149,12 +166,10 @@
           Voulez-vous vraiment supprimer cet utilisateur ?
         </div>
         <div class="modal-footer">
-          <a href="{{url('/delete-user/'.$user->id)}}" class="btn btn-danger">Supprimer</a>
+          <a href="{{url('/delete-client/'.$client->id)}}" class="btn btn-danger">Supprimer</a>
           <button type="button" class="btn btn-info" data-bs-dismiss="modal">Annuler</button>
         </div>
       </div>
     </div>
   </div>
-
-    
 @endsection

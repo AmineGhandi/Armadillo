@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Clients;
 use App\Models\Utilisateurs;
 use Hamcrest\Util;
 use Illuminate\Http\Request;
@@ -83,8 +84,8 @@ class UtilisateursController extends Controller
             'mdp'=> 'required|min:8|max:55',
         ],
     [
-        'nom.required' => 'veullez remplire le champ du nom',
-        'prenom.required' => 'veullez remplire le champ du prenom',
+        'nom.required' => 'veuillez remplire le champ du nom',
+        'prenom.required' => 'veuillez remplire le champ du prenom',
         'nom.regex' => 'le nom ne doit contenir que des lettres',
         'prenom.regex' => 'le prenom ne doit contenir que des lettres',
         'nom.min' => 'le nom est très court ',
@@ -138,8 +139,8 @@ class UtilisateursController extends Controller
             'img'=> 'required|mimes:jpeg,png,jpg|image'
         ],
     [
-        'nom.required' => 'veullez remplire le champ du nom',
-        'prenom.required' => 'veullez remplire le champ du prenom',
+        'nom.required' => 'veuillez remplire le champ du nom',
+        'prenom.required' => 'veuillez remplire le champ du prenom',
         'nom.regex' => 'le nom ne doit contenir que des lettres',
         'prenom.regex' => 'le prenom ne doit contenir que des lettres',
         'nom.min' => 'le nom est très court ',
@@ -188,8 +189,8 @@ class UtilisateursController extends Controller
             'mdp'=> 'required|min:8|max:55',
         ],
     [
-        'nom.required' => 'veullez remplire le champ du nom',
-        'prenom.required' => 'veullez remplire le champ du prenom',
+        'nom.required' => 'veuillez remplire le champ du nom',
+        'prenom.required' => 'veuillez remplire le champ du prenom',
         'nom.regex' => 'le nom ne doit contenir que des lettres',
         'prenom.regex' => 'le prenom ne doit contenir que des lettres',
         'nom.min' => 'le nom est très court ',
@@ -234,5 +235,121 @@ class UtilisateursController extends Controller
         $user = Utilisateurs::find($id);
         $user->delete();
         return redirect(route('Admin'))->with('deleted','Utilisateur supprimé avec succés');
+    }
+    public function createClient(){
+        $data = ['LoggedUserInfo' =>Utilisateurs::where('id','=',session('LoggedUser'))->first() ];
+        return view('admin.create-client', $data);
+    }
+    public function insertClient(Request $request){
+        $validatedata = $request->validate([
+            'nom' => 'required|regex:/^[a-zA-Z]+$/u|min:3|max:255',
+            'prenom' => 'required|regex:/^[a-zA-Z]+$/u|min:3|max:255',
+            'email' => 'required|regex:/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix|unique:Utilisateurs',
+            'ville' => 'required|regex:/^[a-zA-Z]+$/u|min:3|max:75',
+            'date_naiss' => 'required|date|before:-18 years',
+            'tel' => 'required|regex:/[0-9]{10}/',
+            'rib' => 'required|regex:/[0-9]{14}/',
+            'adress' => 'required'
+        ],
+    [
+        'nom.required' => 'veuillez remplire le champ du nom',
+        'prenom.required' => 'veuillez remplire le champ du prenom',
+        'nom.regex' => 'le nom ne doit contenir que des lettres',
+        'prenom.regex' => 'le prenom ne doit contenir que des lettres',
+        'nom.min' => 'le nom est très court ',
+        'prenom.min' => 'le prenom est très court ',
+        'email.required' => 'veuillez remplire le champ email',
+        'email.regex' => 'format email incorrect',
+        'ville.required' => 'veuillez remplire le champ ville',
+        'ville.regex' => 'le champ ville ne doit contenir que des lettres',
+        'ville.min' => 'le champ ville est très court ',
+        'date_naiss.required' => 'veuillez inserer une date de naissance',
+        'date_naiss.before' => "l'age du client ne doit pas etre inferieur a 18 ans",
+        'tel.required' => 'veuillez remplire le champ Numero de telephone',
+        'tel.regex' => 'format incorrecte',
+        'rib.required' => 'veuillez remplire le champ du RIB',
+        'rib.regex' => 'format incorrecte',
+        'adress.required' => 'veuillez inserer votre adresse'
+
+    ]
+    );
+    $Client = new Clients;
+    $Client->nom = $request->nom;
+    $Client->prenom = $request->prenom;
+    $Client->email = $request->email;
+    $Client->tel = $request->tel;
+    $Client->ville = $request->ville;
+    $Client->date_naiss = $request->date_naiss;
+    $Client->rib = $request->rib;
+    $Client->adress = $request->adress;
+
+
+    $Client->save();
+
+    return redirect()->route('clientList')->with('success','Client ajouté avec succés');
+    }
+    public function clientList(){
+        $data = ['LoggedUserInfo' =>Utilisateurs::where('id','=',session('LoggedUser'))->first() ];
+        $clients = Clients::all();
+        return view('admin.list-client', $data, compact('clients') );
+    }
+    public function editClient($id){
+        $data = ['LoggedUserInfo' =>Utilisateurs::where('id','=',session('LoggedUser'))->first() ];
+        $client = Clients::find($id);
+        return view('admin.edit-client', $data, compact('client'));
+    }
+    public function updateClient(Request $request , $id){
+        $validatedata = $request->validate([
+            'nom' => 'required|regex:/^[a-zA-Z]+$/u|min:3|max:255',
+            'prenom' => 'required|regex:/^[a-zA-Z]+$/u|min:3|max:255',
+            'email' => 'required|regex:/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix|unique:Utilisateurs',
+            'ville' => 'required|regex:/^[a-zA-Z]+$/u|min:3|max:75',
+            'date_naiss' => 'required|date|before:-18 years',
+            'tel' => 'required|regex:/[0-9]{10}/',
+            'rib' => 'required|regex:/[0-9]{14}/',
+            'adress' => 'required'
+        ],
+    [
+        'nom.required' => 'veuillez remplire le champ du nom',
+        'prenom.required' => 'veuillez remplire le champ du prenom',
+        'nom.regex' => 'le nom ne doit contenir que des lettres',
+        'prenom.regex' => 'le prenom ne doit contenir que des lettres',
+        'nom.min' => 'le nom est très court ',
+        'prenom.min' => 'le prenom est très court ',
+        'email.required' => 'veuillez remplire le champ email',
+        'email.regex' => 'format email incorrect',
+        'ville.required' => 'veuillez remplire le champ ville',
+        'ville.regex' => 'le champ ville ne doit contenir que des lettres',
+        'ville.min' => 'le champ ville est très court ',
+        'date_naiss.required' => 'veuillez inserer une date de naissance',
+        'date_naiss.before' => "l'age du client ne doit pas etre inferieur a 18 ans",
+        'tel.required' => 'veuillez remplire le champ Numero de telephone',
+        'tel.regex' => 'format incorrecte',
+        'rib.required' => 'veuillez remplire le champ du RIB',
+        'rib.regex' => 'format incorrecte',
+        'adress.required' => 'veuillez inserer votre adresse'
+
+    ]
+    );
+    $client = Clients::find($id);
+    $client->nom = $request->nom;
+    $client->prenom = $request->prenom;
+    $client->email = $request->email;
+    $client->tel = $request->tel;
+    $client->ville = $request->ville;
+    $client->date_naiss = $request->date_naiss;
+    $client->rib = $request->rib;
+    $client->adress = $request->adress;
+
+
+    $client->save();
+
+    return redirect()->route('clientList')->with('success','Client modifié avec succés');
+
+    }
+    public function deleteClient($id){
+        $client = Clients::find($id);
+        $client->delete();
+        return redirect(route('clientList'))->with('deleted','Client supprimé avec succés');
     }
 }

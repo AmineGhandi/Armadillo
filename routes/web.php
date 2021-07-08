@@ -45,4 +45,14 @@ Route::group(['middleware'=>['AuthCheck']],function(){
     Route::post('send',[ContactController::class, 'send'])->name('email.send');
     //send multiple emails
 
+    //Create Client
+    Route::get('/create-client',[UtilisateursController::class,'createClient'])->name('createClient');
+    Route::post('/insert-client',[UtilisateursController::class,'insertClient'])->name('insertClient');
+    //Client List
+    Route::get('/client-list',[UtilisateursController::class,'clientList'])->name('clientList');
+    //Edit Client
+    Route::get('/edit-client{id}',[UtilisateursController::class,'editClient']);
+    Route::post('/update-client/{id}',[UtilisateursController::class,'updateClient']);
+    //Delete Client
+    Route::get('/delete-client/{id}', [UtilisateursController::class , 'deleteClient']);
 });  

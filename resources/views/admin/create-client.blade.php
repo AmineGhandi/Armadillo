@@ -10,11 +10,11 @@
 		</a>
 		<ul id="dashboards" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
 			<li class="sidebar-item "><a class="sidebar-link" href="{{route('createUser')}}">Utilisateurs</a></li>
-			<li class="sidebar-item "><a class="sidebar-link" href="dashboard-analytics.html">Clients</a></li>
+			<li class="sidebar-item "><a class="sidebar-link" href="{{route('createClient')}}">Clients</a></li>
 		</ul>
 	</li>
 	<li class="sidebar-item">
-		<a href="#" class="sidebar-link collapsed">
+		<a href="{{route('clientList')}}" class="sidebar-link collapsed">
 			<i class="align-middle me-2 fas fa-fw fa-list-alt"></i> <span class="align-middle">Liste des clients</span>
 		</a>
 	</li>
@@ -68,7 +68,7 @@
         <h6 class="card-subtitle text-muted">Merci de remplir le formulaire avec les informations necessaires.</h6>
     </div>
     <div class="card-body">
-        <form action="" method="POST">
+        <form action="{{route('insertClient')}}" method="POST">
 			@csrf
             <div class="mb-3">
                 <label class="form-label">Email</label>
@@ -135,15 +135,15 @@
             </div>
             <div class="mb-3">
                 <label class="form-label">Adresse</label>
-                <input type="text" class="form-control"  name="prenom" placeholder="adress">
-                @error('prenom')
+                <textarea  class="form-control" rows="3" name="adress" placeholder="les details d'adresse"></textarea>
+                @error('adress')
             <div class="text-danger">
               {{$message}}
             </div>
           @enderror
             </div>
             <button type="submit" class="btn btn-primary">Sauvegarder</button>
-			<a href="{{route('Admin')}}" class="btn btn-secondary">Annuler</a>
+			<a href="{{route('Admin')}}" class="btn btn-info">Annuler</a>
         </form>
     </div>
 </div>

@@ -10,11 +10,11 @@
 		</a>
 		<ul id="dashboards" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
 			<li class="sidebar-item "><a class="sidebar-link" href="{{route('createUser')}}">Utilisateurs</a></li>
-			<li class="sidebar-item "><a class="sidebar-link" href="dashboard-analytics.html">Clients</a></li>
+			<li class="sidebar-item "><a class="sidebar-link" href="{{route('createClient')}}">Clients</a></li>
 		</ul>
 	</li>
 	<li class="sidebar-item">
-		<a href="#" class="sidebar-link collapsed">
+		<a href="{{route('clientList')}}" class="sidebar-link collapsed">
 			<i class="align-middle me-2 fas fa-fw fa-list-alt"></i> <span class="align-middle">Liste des clients</span>
 		</a>
 	</li>
@@ -43,14 +43,14 @@
 		</a>
 		<ul id="forms" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
 			<li class="sidebar-item"><a class="sidebar-link" href="#">Envoyer a plusieurs clients</a></li>
-			<li class="sidebar-item"><a class="sidebar-link" href="#">Envoyer a un seul client</a></li>
+			<li class="sidebar-item"><a class="sidebar-link" href="{{route('email.index')}}">Envoyer a un seul client</a></li>
 		</ul>
 	</li>
 	<li class="sidebar-header">
 		Pramètres d'utilisateur
 	</li>
 	<li class="sidebar-item">
-		<a href="#" class="sidebar-link collapsed">
+		<a href="{{url('/edit-profil' . $LoggedUserInfo['id'])}}" class="sidebar-link collapsed">
 			<i class="align-middle me-2 fas fa-fw fa-user-alt"></i> <span class="align-middle">Modifier mes informations</span>
 		</a>
 	</li>
@@ -127,7 +127,7 @@
                 </select>
             </div>
             <button type="submit" class="btn btn-primary">Sauvegarder</button>
-			<a href="{{route('Admin')}}" class="btn btn-secondary">Annuler</a>
+			<a href="{{route('Admin')}}" class="btn btn-info">Annuler</a>
         </form>
     </div>
 </div>

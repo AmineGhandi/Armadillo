@@ -15,11 +15,11 @@
 		</a>
 		<ul id="dashboards" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
 			<li class="sidebar-item "><a class="sidebar-link" href="{{route('createUser')}}">Utilisateurs</a></li>
-			<li class="sidebar-item "><a class="sidebar-link" href="dashboard-analytics.html">Clients</a></li>
+			<li class="sidebar-item "><a class="sidebar-link" href="{{route('createClient')}}">Clients</a></li>
 		</ul>
 	</li>
 	<li class="sidebar-item">
-		<a href="#" class="sidebar-link collapsed">
+		<a href="{{route('clientList')}}" class="sidebar-link collapsed">
 			<i class="align-middle me-2 fas fa-fw fa-list-alt"></i> <span class="align-middle">Liste des clients</span>
 		</a>
 	</li>
