@@ -16,9 +16,13 @@ class ContactController extends Controller
         $utilisateurs = Utilisateurs::all();
         return view('email.index', $data, compact('utilisateurs'));
     }
+
     function send(Request $request){
+        // dd($request);
+        // exit;
         $name = $request ->name;
         $email = $request ->email;
+        // [0]
         // $email = $_POST['email'];
         // $bcc = $request ->bcc;
         $subject = $request ->subject;
@@ -37,7 +41,11 @@ class ContactController extends Controller
         $mail->Port       = 587;
         $mail->setFrom($email, $name);
         $mail->addAddress($email);
-        // $mail->addBCC($bcc);
+        // for ($i=1; $i < count($request ->email); $i++) { 
+        //     // $mail->addBCC($request ->email[$i]);
+        //     $mail->addCC($request ->email[$i]);
+            
+        // }
 
         $mail->isHTML(true);
         $mail->Subject =  $subject;
@@ -56,5 +64,5 @@ class ContactController extends Controller
         // }else {
         //     return back()->with("success", "Email has been sent.");
         // }
-    }
+}
 }
