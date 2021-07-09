@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\UtilisateursController;
+use App\Models\Clients;
 use App\Models\Utilisateurs;
 use Illuminate\Http\Request;
 use PHPMailer\PHPMailer\PHPMailer;
@@ -13,20 +14,21 @@ class ContactController extends Controller
 {
     function index(){
         $data = ['LoggedUserInfo' =>Utilisateurs::where('id','=',session('LoggedUser'))->first() ];
-        $utilisateurs = Utilisateurs::all();
-        return view('email.index', $data, compact('utilisateurs'));
+        $clients = Clients::all();
+        return view('email.index', $data, compact('clients'));
     }
 
     function send(Request $request){
-        // dd($request);
-        // exit;
-        $name = $request ->name;
-        $email = $request ->email;
-        // [0]
-        // $bcc = $request ->bcc;
-        $subject = $request ->subject;
-        $message = $request ->message;
 
+        $name = "ARMADILLO";
+        $email = $request ->email;
+        $subject = $request ->subject;
+        $msg = $request ->message;
+
+
+        $message = file_get_contents('emaill/email_template.html');
+
+        $message = str_replace('%message%', $msg , $message);
         
         require 'PHPMailer/vendor/autoload.php';
         $mail = new PHPMailer(true);
@@ -40,15 +42,12 @@ class ContactController extends Controller
         $mail->Port       = 587;
         $mail->setFrom($email, $name);
         $mail->addAddress($email);
-        // for ($i=1; $i < count($request ->email); $i++) { 
-        //     // $mail->addBCC($request ->email[$i]);
-        //     $mail->addCC($request ->email[$i]);
-            
-        // }
+
 
         $mail->isHTML(true);
-        $mail->Subject =  $subject;
-        $mail->Body    = $message;
+        $mail->Subject = $subject;
+        $mail->Body    = $msg;
+        $mail->MsgHTML($message);
         $dt = $mail->send();
         $mail ->smtpClose();
         if($dt){

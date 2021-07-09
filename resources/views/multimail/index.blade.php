@@ -71,17 +71,13 @@
 	  <div class="card-header">
 	  </div>
 	  <div class="card-body">
-			<div class="form-group">
-				 <label>Name</label>
-				 <input type="text" name="name"  class="form-control" placeholder="Enter Name">
-			 </div>
 			 <div class="mb-3">
                 <label class="form-label">Email</label>
 				</br>
                 <select name="email" class="select2 form-control" style="width: 100%"> 
 				<option disabled selected>select an option</option>
-					@foreach ($utilisateurs as $util)
-                    <option value="{{$util->email}}">{{$util->email}}</option>
+					@foreach ($clients as $Client)
+                    <option value="{{$Client->email}}">{{$Client->email}}</option>
 					@endforeach
                 </select>
             </div>
@@ -90,8 +86,8 @@
 				</br>     
                 <select name="bcc[]" class="select2 " style="width: 100%" multiple> 
 				<option disabled selected>select an option</option>
-					@foreach ($utilisateurs as $util)
-                    <option value="{{$util->email}}">{{$util->email}}</option>
+					@foreach ($clients as $Client)
+                    <option value="{{$Client->email}}">{{$Client->email}}</option>
 					@endforeach
                 </select>
             </div>

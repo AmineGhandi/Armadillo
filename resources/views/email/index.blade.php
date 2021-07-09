@@ -72,27 +72,17 @@
 	  
 	  </div>
 	  <div class="card-body">
-			<div class="form-group">
-				 <label>Name</label>
-				 <input type="text" name="name"  class="form-control" placeholder="Enter Name">
-			 </div>
+			
 			 <div class="mb-3">
                 <label class="form-label">Email</label>
 				</br>
-				              <!-- .. -->
                 <select name="email" class="select2 form-control" style="width: 100%"> 
-					<!-- multiple -->
 					<option disabled selected style="font-size: 12%;">Select an email</option>
-					@foreach ($utilisateurs as $util)
-                    <option value="{{$util->email}}">{{$util->email}}</option>
+					@foreach ($clients as $Client)
+                    <option value="{{$Client->email}}">{{$Client->email}}</option>
 					@endforeach
                 </select>
             </div>
-			
-			 <!-- <div class="form-group">
-				 <label>Email</label>
-				 <input type="email" id="email" name="email" class="form-control" placeholder="Enter Email">
-			 </div> -->
 			 <div class="form-group">
 				 <label>Subject</label>
 				 <input type="text" name="subject" class="form-control" placeholder="Enter Subject">
