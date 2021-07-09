@@ -120,9 +120,12 @@
 												<td>{{$util->prenom}}</td>
 												<td>{{$util->email}}</td>
 												<td>{{$util->role}}</td>
-												<td><a href="{{url('/edit-user'. $util->id)}}" class="btn btn-primary">
-													<i class="fas  fa-cogs"></i>
-												</a>
+												<td>
+                                                    @if ($util->role != 'Admin')
+                                                    <a href="{{url('/edit-user'. $util->id)}}" class="btn btn-primary">
+                                                        <i class="fas  fa-cogs"></i>
+                                                    </a>
+                                                    @endif
 												</td>
 											</tr>
 											@endforeach
