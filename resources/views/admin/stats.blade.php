@@ -61,83 +61,8 @@
 	</li>
 </ul>
 @endsection
+
 @section('page-body')
 
-<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-
-<form action="{{ route('multimail.send') }}" method="post">
-	@csrf
-	<div class="card">
-	  <div class="card-header">
-	  </div>
-	  <div class="card-body">
-			<div class="form-group">
-				 <label>Name</label>
-				 <input type="text" name="name"  class="form-control" placeholder="Enter Name">
-			 </div>
-			 <div class="mb-3">
-                <label class="form-label">Email</label>
-				</br>
-                <select name="email" class="select2 form-control" style="width: 100%"> 
-				<option disabled selected>select an option</option>
-					@foreach ($utilisateurs as $util)
-                    <option value="{{$util->email}}">{{$util->email}}</option>
-					@endforeach
-                </select>
-            </div>
-            <div class="mb-3">
-                <label class="form-label">Cc</label>
-				</br>     
-                <select name="bcc[]" class="select2 " style="width: 100%" multiple> 
-				<option disabled selected>select an option</option>
-					@foreach ($utilisateurs as $util)
-                    <option value="{{$util->email}}">{{$util->email}}</option>
-					@endforeach
-                </select>
-            </div>
-			 <!-- <div class="form-group">
-				 <label>Email</label>
-				 <input type="email" id="email" name="email" class="form-control" placeholder="Enter Email">
-			 </div> -->
-			 <div class="form-group">
-				 <label>Subject</label>
-				 <input type="text" name="subject" class="form-control" placeholder="Enter Subject">
-			 </div>
-			 <div class="form-group">
-				 <label>Message</label>
-				 <textarea name="message" class="form-control" placeholder="Enter Message"></textarea>
-			 </div>
-	  </div>
-	  <div class="card-body">
-		 <button type="submit" class="btn btn-primary">Send</button>
-		 <a href="{{route('Admin')}}" class="btn btn-info">Annuler</a>
-	  </div>
-	</div>
-  </form>
-  <!-- scripts -->
-  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<!-- end scripts -->
-
-
-  <script>
-  	$(document).ready(function() {
-    $('.select2').select2();
-	});
-  </script>
-
-@if (Session::get('success'))
-<script type='text/javascript'>
-	Swal.fire({
-position: 'top-end',
-icon: 'success',
-title: 'mail envoyé avec succès',
-showConfirmButton: false,
-timer: 3000
-})
-</script>
-	
-@endif
 
 @endsection
-

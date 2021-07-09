@@ -24,7 +24,7 @@
 		</a>
 	</li>
 	<li class="sidebar-item">
-		<a href="#" class="sidebar-link collapsed">
+		<a href="{{route('stats')}}" class="sidebar-link collapsed">
 			<i class="align-middle me-2 fas fa-fw fa-chart-pie"></i> <span class="align-middle">Statistiques des utilisateurs</span>
 		</a>
 	</li>

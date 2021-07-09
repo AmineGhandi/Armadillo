@@ -57,4 +57,6 @@ Route::group(['middleware'=>['AuthCheck']],function(){
     Route::post('/update-client/{id}',[UtilisateursController::class,'updateClient']);
     //Delete Client
     Route::get('/delete-client/{id}', [UtilisateursController::class , 'deleteClient']);
+    //Stats Page
+    Route::get('/stats',[UtilisateursController::class,'statp'])->name('stats');
 });  

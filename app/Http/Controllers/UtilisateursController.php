@@ -308,7 +308,7 @@ class UtilisateursController extends Controller
             'ville' => 'required|regex:/^[a-zA-Z]+$/u|min:3|max:75',
             'date_naiss' => 'required|date|before:-18 years',
             'tel' => 'required|regex:/[0-9]{10}/',
-            'rib' => 'required|regex:/[0-9]{14}/',
+            'rib' => 'required|regex:/[0-9]{24}/',
             'adress' => 'required'
         ],
     [
@@ -353,5 +353,9 @@ class UtilisateursController extends Controller
         $client = Clients::find($id);
         $client->delete();
         return redirect(route('clientList'))->with('deleted','Client supprimé avec succés');
+    }
+    public function statp(){
+        $data = ['LoggedUserInfo' =>Utilisateurs::where('id','=',session('LoggedUser'))->first() ];
+        return view('admin.stats',$data);
     }
 }
