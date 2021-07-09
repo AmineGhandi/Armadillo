@@ -250,7 +250,7 @@ class UtilisateursController extends Controller
             'ville' => 'required|regex:/^[a-zA-Z]+$/u|min:3|max:75',
             'date_naiss' => 'required|date|before:-18 years',
             'tel' => 'required|regex:/[0-9]{10}/',
-            'rib' => 'required|regex:/[0-9]{14}/',
+            'rib' => 'required|regex:/[0-9]{24}/',
             'adress' => 'required'
         ],
     [
