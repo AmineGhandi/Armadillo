@@ -65,44 +65,35 @@
 
 <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 
-<form action="{{ route('multimail.send') }}" method="post">
-	@csrf
+<form action="" method="post">
+	
 	<div class="card">
-	  <div class="card-header">
-	  </div>
+    <script>
+    function printDiv(divName){
+        var printContents = document.getElementById(divName).innerHTML;
+        var originalContents = document.body.innerHTML;
+
+        document.body.innerHTML = printContents;
+
+        window.print();
+
+        document.body.innerHTML = originalContents;
+
+    }
+</script>
+
+
+
+
 	  <div class="card-body">
-			 <div class="mb-3">
-                <label class="form-label">Email</label>
-				</br>
-                <select name="email" class="select2 form-control" style="width: 100%" required> 
-				<option value="">select an option</option>
-					@foreach ($clients as $Client)
-                    <option value="{{$Client->email}}">{{$Client->email}}</option>
-					@endforeach
-                </select>
-            </div>
-            <div class="mb-3">
-                <label class="form-label">Cc</label>
-				</br>     
-                <select name="bcc[]" class="select2 " style="width: 100%" multiple required> 
-					@foreach ($clients as $Client)
-                    <option value="{{$Client->email}}">{{$Client->email}}</option>
-					@endforeach
-                </select>
-            </div>
-			 <div class="form-group">
-				 <label>Subject</label>
-				 <input type="text" name="subject" class="form-control" placeholder="Enter Subject">
-			 </div>
-			 <div class="form-group">
-				 <label>Message</label>
-				 <textarea name="message" class="form-control" placeholder="Enter Message"></textarea>
-			 </div>
-	  </div>
-	  <div class="card-body">
-		 <button type="submit" class="btn btn-primary">Send</button>
-		 <a href="{{route('Admin')}}" class="btn btn-info">Annuler</a>
-	  </div>
+			
+			<h1> do not print this </h1>
+
+<div id='printMe'>
+ <input type="text">
+Print this only 
+</div>
+<button onclick="printDiv('printMe')">Print only the above div</button>
 	</div>
   </form>
   <!-- scripts -->
@@ -110,24 +101,19 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <!-- end scripts -->
 
+
   <script>
   	$(document).ready(function() {
     $('.select2').select2();
 	});
   </script>
 
-@if (Session::get('success'))
+
 <script type='text/javascript'>
-	Swal.fire({
-position: 'top-end',
-icon: 'success',
-title: 'mail envoyé avec succès',
-showConfirmButton: false,
-timer: 3000
-})
+
 </script>
 	
-@endif
+
 
 @endsection
 

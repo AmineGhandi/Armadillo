@@ -3,6 +3,8 @@
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\UtilisateursController;
 use App\Http\Controllers\MultiMailController;
+use App\Http\Controllers\printController;
+use App\Http\Controllers\printerController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -59,4 +61,8 @@ Route::group(['middleware'=>['AuthCheck']],function(){
     Route::get('/delete-client/{id}', [UtilisateursController::class , 'deleteClient']);
     //Stats Page
     Route::get('/stats',[UtilisateursController::class,'statp'])->name('stats');
+    //Print Page
+    Route::get('/printer',[printerController::class,'index'])->name('printer');
+    Route::get('/print',[printController::class,'index'])->name('print');
+    
 });  

@@ -43,7 +43,6 @@ class MultiMailController extends Controller
         $mail->addAddress($email);
         for ($i=0; $i < count($request ->bcc); $i++) { 
             $mail->addBCC($request ->bcc[$i]);
-            
         }
 
         $mail->isHTML(true);

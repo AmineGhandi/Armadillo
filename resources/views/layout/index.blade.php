@@ -60,8 +60,6 @@
 				<a class="sidebar-toggle d-flex me-2">
 					<i class="hamburger align-self-center"></i>
 				</a>
-
-
 				<div class="navbar-collapse collapse">
 					<ul class="navbar-nav ms-auto">
 						

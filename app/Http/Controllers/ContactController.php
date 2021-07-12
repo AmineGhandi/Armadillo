@@ -55,12 +55,6 @@ class ContactController extends Controller
         } else{
             echo 'Something went wrong';
         }
-        
-        // if( !$mail->send() ) {
-        //     return back()->with("failed", "Email not sent.")->withErrors($mail->ErrorInfo);
-           
-        // }else {
-        //     return back()->with("success", "Email has been sent.");
-        // }
+
 }
 }
