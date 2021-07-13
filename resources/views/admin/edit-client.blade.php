@@ -116,6 +116,17 @@
           @enderror
             </div>
             <div class="mb-3">
+              <label class="form-label">Sexe</label>
+                            <label class="form-check">
+                              <input name="sexe" type="radio" value="M" class="form-check-input" {{$client->sexe == 'M' ? 'checked' : '' }} >
+                              <span class="form-check-label">M</span>
+                            </label>
+                            <label class="form-check">
+                              <input name="sexe" type="radio" value="F" class="form-check-input" {{$client->sexe == 'F' ? 'checked' : '' }}>
+                              <span class="form-check-label">F</span>
+                            </label>
+              </div>
+            <div class="mb-3">
                 <label class="form-label">Date de naissance</label>
                 <input type="date" class="form-control" value="{{$client->date_naiss}}" name="date_naiss" placeholder="Date de naissance">
                 @error('date_naiss')

@@ -283,6 +283,7 @@ class UtilisateursController extends Controller
     $Client->ville = $request->ville;
     $Client->date_naiss = $request->date_naiss;
     $Client->rib = $request->rib;
+    $Client->sexe = $request->sexe;
     $Client->adress = $request->adress;
 
 
@@ -341,6 +342,7 @@ class UtilisateursController extends Controller
     $client->ville = $request->ville;
     $client->date_naiss = $request->date_naiss;
     $client->rib = $request->rib;
+    $client->sexe = $request->sexe;
     $client->adress = $request->adress;
 
 

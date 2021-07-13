@@ -116,6 +116,17 @@
           @enderror
             </div>
             <div class="mb-3">
+            <label class="form-label">Sexe</label>
+													<label class="form-check">
+														<input name="sexe" type="radio" value="M" class="form-check-input" checked>
+														<span class="form-check-label">M</span>
+													</label>
+													<label class="form-check">
+														<input name="sexe" type="radio" value="F" class="form-check-input">
+														<span class="form-check-label">F</span>
+													</label>
+            </div>
+            <div class="mb-3">
                 <label class="form-label">Date de naissance</label>
                 <input type="date" class="form-control"  name="date_naiss" placeholder="Date de naissance">
                 @error('date_naiss')

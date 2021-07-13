@@ -23,6 +23,7 @@ class CreateClientsTable extends Migration
             $table->date('date_naiss');
             $table->string('adress');
             $table->string('rib');
+            $table->char('sexe');
             $table->timestamps();
         });
     }

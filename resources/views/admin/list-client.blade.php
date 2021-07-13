@@ -103,6 +103,7 @@
 												<th>Nom</th>
 												<th>Prenom</th>
 												<th>Email</th>
+                                                <th>Sexe</th>
 												<th>Tel</th>
                                                 <th>Ville</th>
                                                 <th>Date de naissance</th>
@@ -115,6 +116,7 @@
 												<td>{{$client->nom}}</td>
 												<td>{{$client->prenom}}</td>
 												<td>{{$client->email}}</td>
+                                                <td>{{$client->sexe}}</td>
 												<td>{{$client->tel}}</td>
                                                 <td>{{$client->ville}}</td>
                                                 <td>{{$client->date_naiss}}</td>
@@ -130,6 +132,7 @@
 												<th>Nom</th>
 												<th>Prenom</th>
 												<th>Email</th>
+                                                <th>Sexe</th>
 												<th>Tel</th>
                                                 <th>Ville</th>
                                                 <th>Date de naissance</th>
