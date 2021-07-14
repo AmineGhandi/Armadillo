@@ -63,6 +63,80 @@
 @endsection
 
 @section('page-body')
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+    var analytics = <?php echo $role; ?> ;
+  google.charts.load('current', {'packages':['corechart']});
+  google.charts.setOnLoadCallback(drawChart);
 
+  function drawChart() {
+
+    var data = google.visualization.arrayToDataTable(analytics);
+
+    var options = {
+      title: 'Roles des utilisateurs',
+       pieHole: 0.45,
+    };
+
+    var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+    chart.draw(data, options);
+  }
+</script>
+<script type="text/javascript">
+	var analytics_ville = <?php echo $ville; ?> ;
+      google.charts.load('current', {'packages':['bar']});
+      google.charts.setOnLoadCallback(drawStuff);
+
+      function drawStuff() {
+        var data = new google.visualization.arrayToDataTable(analytics_ville);
+
+        var options = {
+          width: 800,
+          legend: { position: 'none' },
+          chart: {
+            title: 'Villes',
+            subtitle: 'Clients par ville' },
+          axes: {
+            x: {
+              0: { side: 'top', label: 'Clients/Villes'} // Top x-axis.
+            }
+          },
+          bar: { groupWidth: "90%" }
+        };
+
+        var chart = new google.charts.Bar(document.getElementById('top_x_div'));
+        // Convert the Classic options to Material options.
+        chart.draw(data, google.charts.Bar.convertOptions(options));
+      };
+    </script>
+	<script type="text/javascript">
+		var analyticscli = <?php echo $sexe; ?> ;
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable(analyticscli);
+
+        var options = {
+          title: 'Civilité des clients'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart2'));
+
+        chart.draw(data, options);
+      }
+    </script>
+
+<div class="row">
+	<div class="col-sm-7">
+		<div id="piechart" style="width: 800px; height: 425px;"></div>
+	</div>
+	<div class="col-sm-5">
+		<div id="piechart2" style="width: 650px; height: 425px;"></div>
+	</div>
+</div>
+<div id="top_x_div" style="width: 800px; height: 600px;"></div>
 
 @endsection

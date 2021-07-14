@@ -116,14 +116,14 @@
           @enderror
             </div>
             <div class="mb-3">
-              <label class="form-label">Sexe</label>
+              <label class="form-label">Civilité</label>
                             <label class="form-check">
-                              <input name="sexe" type="radio" value="M" class="form-check-input" {{$client->sexe == 'M' ? 'checked' : '' }} >
-                              <span class="form-check-label">M</span>
+                              <input name="sexe" type="radio" value="Mr" class="form-check-input" {{$client->sexe == 'Mr' ? 'checked' : '' }} >
+                              <span class="form-check-label">Mr</span>
                             </label>
                             <label class="form-check">
-                              <input name="sexe" type="radio" value="F" class="form-check-input" {{$client->sexe == 'F' ? 'checked' : '' }}>
-                              <span class="form-check-label">F</span>
+                              <input name="sexe" type="radio" value="Mme" class="form-check-input" {{$client->sexe == 'Mme' ? 'checked' : '' }}>
+                              <span class="form-check-label">Mme</span>
                             </label>
               </div>
             <div class="mb-3">

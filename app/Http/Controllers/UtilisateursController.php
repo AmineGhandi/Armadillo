@@ -7,6 +7,7 @@ use App\Models\Utilisateurs;
 use Hamcrest\Util;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class UtilisateursController extends Controller
 {
@@ -358,6 +359,38 @@ class UtilisateursController extends Controller
     }
     public function statp(){
         $data = ['LoggedUserInfo' =>Utilisateurs::where('id','=',session('LoggedUser'))->first() ];
-        return view('admin.stats',$data);
+        $util = DB::table('Utilisateurs')
+                ->select(
+                    DB::raw('role as role'),
+                    DB::raw('count(*) as number'))
+                ->groupBy('role')
+                ->get();
+        $array[] = ['role' , 'number'];
+        foreach ($util as $key => $value) {
+            $array[++$key] = [$value->role , $value->number];
+        }
+        $ville = DB::table('Clients')
+                ->select(
+                    DB::raw('ville as ville'),
+                    DB::raw('count(*) as number'))
+                ->groupBy('ville')
+                ->get();
+        $arrayville[] = ['ville' , 'number'];
+        foreach ($ville as $key => $value) {
+            $arrayville[++$key] = [$value->ville , $value->number];
+        }
+        $cli = DB::table('Clients')
+                ->select(
+                    DB::raw('sexe as sexe'),
+                    DB::raw('count(*) as number'))
+                ->groupBy('sexe')
+                ->get();
+        $arraycli[] = ['sexe' , 'number'];
+        foreach ($cli as $key => $value) {
+            $arraycli[++$key] = [$value->sexe , $value->number];
+        }
+        return view('admin.stats',$data)->with('role',json_encode($array))
+                                        ->with('ville',json_encode($arrayville))
+                                        ->with('sexe',json_encode($arraycli));
     }
 }

@@ -103,7 +103,7 @@
 												<th>Nom</th>
 												<th>Prenom</th>
 												<th>Email</th>
-                                                <th>Sexe</th>
+                                                <th>Civilité</th>
 												<th>Tel</th>
                                                 <th>Ville</th>
                                                 <th>Date de naissance</th>
@@ -132,7 +132,7 @@
 												<th>Nom</th>
 												<th>Prenom</th>
 												<th>Email</th>
-                                                <th>Sexe</th>
+                                                <th>Civilité</th>
 												<th>Tel</th>
                                                 <th>Ville</th>
                                                 <th>Date de naissance</th>
