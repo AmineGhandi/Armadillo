@@ -60,7 +60,6 @@ const convertNumberToString = amount => {
         result += ` ${numbers[realTensValue]}`;
       } else {
         if (onesValue === 0) {
-          
           result += ` ${tensValue === 0 ? '' : numbers[tensValue] }`; 
         } else {
           result += ` ${numbers[tensValue]}-${onesValue === 0 ? '' : numbers[onesValue]}`;
@@ -79,13 +78,10 @@ const convertNumberToString = amount => {
 const convertAndDisplay = event => {
   const amount = event.currentTarget.value;
   const output = convertNumberToString(amount);
-  const outputContainer = document.getElementById('stringOutput');
-  outputContainer.innerHTML = output;
+  document.getElementById('stringOutput').value = output;
 }
 
 const searchInput = document.getElementById('numberInput');
 searchInput.addEventListener('change', convertAndDisplay);
 searchInput.addEventListener('keyup', convertAndDisplay);
-
-const outputContainer = document.getElementById('stringOutput');
 })();

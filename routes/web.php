@@ -63,6 +63,6 @@ Route::group(['middleware'=>['AuthCheck']],function(){
     Route::get('/stats',[UtilisateursController::class,'statp'])->name('stats');
     //Print Page
     Route::get('/printer',[printerController::class,'index'])->name('printer');
-    Route::get('/print',[printController::class,'index'])->name('print');
+    Route::post('/print',[printController::class,'index'])->name('print');
     
 });  

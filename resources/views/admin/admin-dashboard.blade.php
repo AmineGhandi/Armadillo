@@ -33,13 +33,9 @@
 		Metier
 	</li>
 	<li class="sidebar-item">
-		<a data-bs-target="#ui" data-bs-toggle="collapse" class="sidebar-link collapsed">
+		<a class="sidebar-link collapsed" href="{{route('printer')}}">
 			<i class="align-middle me-2 fas fa-fw fa-print"></i> <span class="align-middle">Impression des chèques</span>
 		</a>
-		<ul id="ui" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
-			<li class="sidebar-item"><a class="sidebar-link" href="#">Client existant</a></li>
-			<li class="sidebar-item"><a class="sidebar-link" href="#">Nouveau client</a></li>
-		</ul>
 	</li>
 
 	<li class="sidebar-item">

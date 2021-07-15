@@ -65,17 +65,16 @@
 
 <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 
-<form action="" method="post">
-<div class="col-md-12">
+<form action="{{ route('print') }}" method="post">
+@csrf
+	<div class="col-md-12">
 							<div class="card">
 								<div class="card-header">
-									
 								</div>
 								<div class="card-body">
 									<form>
 										<div class="row">
 											<div class="mb-3 col-md-6">
-                                                
 												<label for="Nomdelemeteur">Nom d'emeteur</label>
 												<input type="text" class="form-control" name="name" placeholder="Nom de l'emeteur">
 											</div>
@@ -86,7 +85,7 @@
 										</div>
 										<div class="mb-3">
 											<label for="inputAddress">Address</label>
-											<input type="text" class="form-control"  placeholder="1234 Main St">
+											<input type="text" class="form-control" name="add"  placeholder="1234 Main St">
 										</div>
 										<div class="mb-3">
 											<label for="montantennombre">Montant en nombre</label>
@@ -95,35 +94,31 @@
 										<div class="row">
 											<div class="mb-3">
 												<label for="montantenlettres">Montant en lettres</label>
-												<div id="stringOutput" name="ml"></div>
-                                                <script  src="js/numberToString.js"></script>
+												<input type="text" class="form-control" id="stringOutput" name="stringOutput" readonly>
 											</div>
-                                            
                                         <div class="row">
 											<div class="mb-3">
-                                                <label class="form-label">Date</label>
+                                                <label class="form-label">Date d'expiration</label>
                                                 <input type="date" class="form-control"  name="date_naiss" placeholder="Date de naissance">
                                             </div>
                                         </div>
+										
 											<div class="mb-3">
-												<label for="memo">beneficier</label>
-												<input type="text" class="form-control" id="Memo">
+												<label for="memo">beneficiaire</label>
+												<input type="text" class="form-control" name="memo" id="Memo" placeholder="Nom de beneficiaire">
 											</div>
 										</div>
 										<button type="submit" class="btn btn-primary">Print</button>
-                                        
+										<a href="{{route('Admin')}}" class="btn btn-info">Retour</a>
 									</form>
 								</div>
 							</div>
 						</div>
   <!-- scripts -->
+  <script  src="js/numberToString.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <!-- end scripts -->
-<script type='text/javascript'>
-
-</script>
-	
 
 
 @endsection
