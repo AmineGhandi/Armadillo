@@ -57,4 +57,15 @@ class MultiMailController extends Controller
             echo 'Something went wrong';
         }
 }
+function indexsup(){
+    $data = ['LoggedUserInfo' =>Utilisateurs::where('id','=',session('LoggedUser'))->first() ];
+    $clients = Clients::all();
+    return view('supervisor.multimail', $data, compact('clients'));
+}
+function indexagentm(){
+    $data = ['LoggedUserInfo' =>Utilisateurs::where('id','=',session('LoggedUser'))->first() ];
+    $clients = Clients::all();
+    return view('mail.multimail', $data, compact('clients'));
+}
+
 }

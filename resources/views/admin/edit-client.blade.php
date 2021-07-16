@@ -1,4 +1,11 @@
 @extends('layout.index')
+@section('nav-items')
+<div class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+    <a class="dropdown-item" href="{{url('/edit-profil' . $LoggedUserInfo['id'])}}"><i class="align-middle me-1 fas fa-fw fa-user"></i> Modifier Profile</a>
+    <div class="dropdown-divider"></div>
+    <a class="dropdown-item" href="{{route('logout')}}"><i class="align-middle me-1 fas fa-fw fa-arrow-alt-circle-right"></i> Se deconnecter</a>
+</div>
+@endsection
 @section('Sidebar')
 <ul class="sidebar-nav">
 	<li class="sidebar-header">
@@ -19,7 +26,7 @@
 		</a>
 	</li>
 	<li class="sidebar-item">
-		<a href="#" class="sidebar-link collapsed">
+		<a href="{{route('stats')}}" class="sidebar-link collapsed">
 			<i class="align-middle me-2 fas fa-fw fa-chart-pie"></i> <span class="align-middle">Statistiques des utilisateurs</span>
 		</a>
 	</li>
@@ -28,13 +35,9 @@
 		Metier
 	</li>
 	<li class="sidebar-item">
-		<a data-bs-target="#ui" data-bs-toggle="collapse" class="sidebar-link collapsed">
+		<a class="sidebar-link collapsed" href="{{route('printer')}}">
 			<i class="align-middle me-2 fas fa-fw fa-print"></i> <span class="align-middle">Impression des chèques</span>
 		</a>
-		<ul id="ui" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
-			<li class="sidebar-item"><a class="sidebar-link" href="#">Client existant</a></li>
-			<li class="sidebar-item"><a class="sidebar-link" href="#">Nouveau client</a></li>
-		</ul>
 	</li>
 
 	<li class="sidebar-item">

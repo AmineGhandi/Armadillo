@@ -1,7 +1,7 @@
 @extends('layout.index')
 @section('nav-items')
 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
-    <a class="dropdown-item" href="{{url('/edit-profil' . $LoggedUserInfo['id'])}}"><i class="align-middle me-1 fas fa-fw fa-user"></i> Modifier Profile</a>
+    <a class="dropdown-item" href="{{url('/supervisor-edit-profil' . $LoggedUserInfo['id'])}}"><i class="align-middle me-1 fas fa-fw fa-user"></i> Modifier Profile</a>
     <div class="dropdown-divider"></div>
     <a class="dropdown-item" href="{{route('logout')}}"><i class="align-middle me-1 fas fa-fw fa-arrow-alt-circle-right"></i> Se deconnecter</a>
 </div>
@@ -11,22 +11,13 @@
 	<li class="sidebar-header">
 		Gestion
 	</li>
-	<li class="sidebar-item ">
-		<a data-bs-target="#dashboards" data-bs-toggle="collapse" class="sidebar-link collapsed">
-			<i class="align-middle me-2 fas fa-fw fa-user-plus"></i> <span class="align-middle">Créer</span>
-		</a>
-		<ul id="dashboards" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
-			<li class="sidebar-item "><a class="sidebar-link" href="{{route('createUser')}}">Utilisateurs</a></li>
-			<li class="sidebar-item "><a class="sidebar-link" href="{{route('createClient')}}">Clients</a></li>
-		</ul>
-	</li>
 	<li class="sidebar-item">
-		<a href="{{route('clientList')}}" class="sidebar-link collapsed">
+		<a href="{{route('clientListsup')}}" class="sidebar-link collapsed">
 			<i class="align-middle me-2 fas fa-fw fa-list-alt"></i> <span class="align-middle">Liste des clients</span>
 		</a>
 	</li>
 	<li class="sidebar-item">
-		<a href="{{route('stats')}}" class="sidebar-link collapsed">
+		<a href="{{route('statssup')}}" class="sidebar-link collapsed">
 			<i class="align-middle me-2 fas fa-fw fa-chart-pie"></i> <span class="align-middle">Statistiques des utilisateurs</span>
 		</a>
 	</li>
@@ -35,7 +26,7 @@
 		Metier
 	</li>
 	<li class="sidebar-item">
-		<a class="sidebar-link collapsed" href="{{route('printer')}}">
+		<a class="sidebar-link collapsed" href="{{route('printersup')}}">
 			<i class="align-middle me-2 fas fa-fw fa-print"></i> <span class="align-middle">Impression des chèques</span>
 		</a>
 	</li>
@@ -45,15 +36,15 @@
 			<i class="align-middle me-2 fas fa-fw fa-paper-plane"></i> <span class="align-middle">Envoie d'emails</span>
 		</a>
 		<ul id="forms" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
-			<li class="sidebar-item"><a class="sidebar-link" href="{{route('multimail.index')}}">Envoyer a plusieurs clients</a></li>
-			<li class="sidebar-item"><a class="sidebar-link" href="{{route('email.index')}}">Envoyer a un seul client</a></li>
+			<li class="sidebar-item"><a class="sidebar-link" href="{{route('multimail.indexsup')}}">Envoyer a plusieurs clients</a></li>
+			<li class="sidebar-item"><a class="sidebar-link" href="{{route('email.indexsup')}}">Envoyer a un seul client</a></li>
 		</ul>
 	</li>
 	<li class="sidebar-header">
 		Pramètres d'utilisateur
 	</li>
 	<li class="sidebar-item">
-		<a href="{{url('/edit-profil' . $LoggedUserInfo['id'])}}" class="sidebar-link collapsed">
+		<a href="{{url('/supervisor-edit-profil' . $LoggedUserInfo['id'])}}" class="sidebar-link collapsed">
 			<i class="align-middle me-2 fas fa-fw fa-user-alt"></i> <span class="align-middle">Modifier mes informations</span>
 		</a>
 	</li>
@@ -63,6 +54,7 @@
 		</a>
 	</li>
 </ul>
+	
 @endsection
 
 @section('page-body')
@@ -72,7 +64,7 @@
         <h6 class="card-subtitle text-muted">Vous pouvez modifier ou supprimer cet utilisateur.</h6>
     </div>
     <div class="card-body">
-        <form action="{{url('/update-user/'. $user->id)}}" method="POST" enctype="multipart/form-data">
+        <form action="{{url('/supervisor-update-user/'. $user->id)}}" method="POST" enctype="multipart/form-data">
 			@csrf
             <div class="mb-3">
                 <label class="form-label">Email</label>
@@ -122,8 +114,6 @@
             <div class="mb-3">
                 <label class="form-label">Role</label>
                 <select name="role" class="form-control">
-                    <option value="Admin" {{$user->role == "Admin" ? 'selected' : '' }} >Admin</option>
-                    <option value="Superviseur" {{$user->role == "Superviseur" ? 'selected' : '' }}>Superviseur</option>
                     <option value="Agent impression" {{$user->role == "Agent impression" ? 'selected' : '' }}>Agent impression</option>
                     <option value="Agent mailing" {{$user->role == "Agent mailing" ? 'selected' : '' }}>Agent mailing</option>
                 </select>
@@ -131,33 +121,12 @@
             <div class="row">
                 <div class="col-sm-9">
             <button type="submit" class="btn btn-primary">Sauvegarder</button>
-			<a href="{{route('Admin')}}" class="btn btn-info">Annuler</a>
-                </div>
-                <div class="col-sm-3">
-                    <button type="button" data-bs-toggle="modal" data-bs-target="#DeleteModal" class="btn btn-danger">Supprimer cet utilisateur</button>
+			<a href="{{route('Supervisor')}}" class="btn btn-info">Annuler</a>
                 </div>
             </div>
         </form>
     </div>
 </div>
-{{-- Modal-delete --}}
-<div class="modal fade" id="DeleteModal" tabindex="-1" aria-labelledby="DeleteLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="DeleteLabel">Confirmation</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          Voulez-vous vraiment supprimer cet utilisateur ?
-        </div>
-        <div class="modal-footer">
-          <a href="{{url('/delete-user/'.$user->id)}}" class="btn btn-danger">Supprimer</a>
-          <button type="button" class="btn btn-info" data-bs-dismiss="modal">Annuler</button>
-        </div>
-      </div>
-    </div>
-  </div>
 
     
 @endsection

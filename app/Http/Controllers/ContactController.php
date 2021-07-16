@@ -57,4 +57,14 @@ class ContactController extends Controller
         }
 
 }
+function indexsup(){
+    $data = ['LoggedUserInfo' =>Utilisateurs::where('id','=',session('LoggedUser'))->first() ];
+    $clients = Clients::all();
+    return view('supervisor.email', $data, compact('clients'));
+}
+function indexagentm(){
+    $data = ['LoggedUserInfo' =>Utilisateurs::where('id','=',session('LoggedUser'))->first() ];
+    $clients = Clients::all();
+    return view('mail.email', $data, compact('clients'));
+}
 }

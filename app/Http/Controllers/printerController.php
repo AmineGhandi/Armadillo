@@ -11,5 +11,13 @@ class printerController extends Controller
         $data = ['LoggedUserInfo' =>Utilisateurs::where('id','=',session('LoggedUser'))->first() ];
         return view('printing.printer', $data);
     }
+    function indexsup(){
+        $data = ['LoggedUserInfo' =>Utilisateurs::where('id','=',session('LoggedUser'))->first() ];
+        return view('supervisor.printer', $data);
+    }
+    function indexagentp(){
+        $data = ['LoggedUserInfo' =>Utilisateurs::where('id','=',session('LoggedUser'))->first() ];
+        return view('print.printer', $data);
+    }
     
 }

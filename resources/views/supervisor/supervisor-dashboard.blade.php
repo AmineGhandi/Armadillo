@@ -1,7 +1,12 @@
 @extends('layout.index')
+@section('welcome-message')
+<h1 class="header-title">
+	Bonjour, {{$LoggedUserInfo['prenom']}}!
+</h1>
+@endsection
 @section('nav-items')
 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
-    <a class="dropdown-item" href="{{url('/edit-profil' . $LoggedUserInfo['id'])}}"><i class="align-middle me-1 fas fa-fw fa-user"></i> Modifier Profile</a>
+    <a class="dropdown-item" href="{{url('/supervisor-edit-profil' . $LoggedUserInfo['id'])}}"><i class="align-middle me-1 fas fa-fw fa-user"></i> Modifier Profile</a>
     <div class="dropdown-divider"></div>
     <a class="dropdown-item" href="{{route('logout')}}"><i class="align-middle me-1 fas fa-fw fa-arrow-alt-circle-right"></i> Se deconnecter</a>
 </div>
@@ -11,22 +16,13 @@
 	<li class="sidebar-header">
 		Gestion
 	</li>
-	<li class="sidebar-item ">
-		<a data-bs-target="#dashboards" data-bs-toggle="collapse" class="sidebar-link collapsed">
-			<i class="align-middle me-2 fas fa-fw fa-user-plus"></i> <span class="align-middle">Créer</span>
-		</a>
-		<ul id="dashboards" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
-			<li class="sidebar-item "><a class="sidebar-link" href="{{route('createUser')}}">Utilisateurs</a></li>
-			<li class="sidebar-item "><a class="sidebar-link" href="{{route('createClient')}}">Clients</a></li>
-		</ul>
-	</li>
 	<li class="sidebar-item">
-		<a href="{{route('clientList')}}" class="sidebar-link collapsed">
+		<a href="{{route('clientListsup')}}" class="sidebar-link collapsed">
 			<i class="align-middle me-2 fas fa-fw fa-list-alt"></i> <span class="align-middle">Liste des clients</span>
 		</a>
 	</li>
 	<li class="sidebar-item">
-		<a href="{{route('stats')}}" class="sidebar-link collapsed">
+		<a href="{{route('statssup')}}" class="sidebar-link collapsed">
 			<i class="align-middle me-2 fas fa-fw fa-chart-pie"></i> <span class="align-middle">Statistiques des utilisateurs</span>
 		</a>
 	</li>
@@ -35,7 +31,7 @@
 		Metier
 	</li>
 	<li class="sidebar-item">
-		<a class="sidebar-link collapsed" href="{{route('printer')}}">
+		<a class="sidebar-link collapsed" href="{{route('printersup')}}">
 			<i class="align-middle me-2 fas fa-fw fa-print"></i> <span class="align-middle">Impression des chèques</span>
 		</a>
 	</li>
@@ -45,15 +41,15 @@
 			<i class="align-middle me-2 fas fa-fw fa-paper-plane"></i> <span class="align-middle">Envoie d'emails</span>
 		</a>
 		<ul id="forms" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
-			<li class="sidebar-item"><a class="sidebar-link" href="{{route('multimail.index')}}">Envoyer a plusieurs clients</a></li>
-			<li class="sidebar-item"><a class="sidebar-link" href="{{route('email.index')}}">Envoyer a un seul client</a></li>
+			<li class="sidebar-item"><a class="sidebar-link" href="{{route('multimail.indexsup')}}">Envoyer a plusieurs clients</a></li>
+			<li class="sidebar-item"><a class="sidebar-link" href="{{route('email.indexsup')}}">Envoyer a un seul client</a></li>
 		</ul>
 	</li>
 	<li class="sidebar-header">
 		Pramètres d'utilisateur
 	</li>
 	<li class="sidebar-item">
-		<a href="{{url('/edit-profil' . $LoggedUserInfo['id'])}}" class="sidebar-link collapsed">
+		<a href="{{url('/supervisor-edit-profil' . $LoggedUserInfo['id'])}}" class="sidebar-link collapsed">
 			<i class="align-middle me-2 fas fa-fw fa-user-alt"></i> <span class="align-middle">Modifier mes informations</span>
 		</a>
 	</li>
@@ -63,6 +59,7 @@
 		</a>
 	</li>
 </ul>
+	
 @endsection
 
 @section('page-body')
@@ -71,7 +68,7 @@
 								<div class="card-header">
 									<div class="row">
 										<div class="col-sm-6">
-											<h2 class="card-title">Liste des Clients</h2>
+											<h2 class="card-title">Liste des Utilisateurs</h2>
 										</div>
 										<div class="col-sm-6">
 											@if (Session::get('success'))									  
@@ -106,26 +103,23 @@
 												<th>Nom</th>
 												<th>Prenom</th>
 												<th>Email</th>
-                                                <th>Civilité</th>
-												<th>Tel</th>
-                                                <th>Ville</th>
-                                                <th>Date de naissance</th>
-                                                <th>Actions</th>
+												<th>Role</th>
+												<th>Actions</th>
 											</tr>
 										</thead>
 										<tbody>
-											@foreach ($clients as $client)
+											@foreach ($utilisateurs as $util)
 											<tr>
-												<td>{{$client->nom}}</td>
-												<td>{{$client->prenom}}</td>
-												<td>{{$client->email}}</td>
-                                                <td>{{$client->sexe}}</td>
-												<td>{{$client->tel}}</td>
-                                                <td>{{$client->ville}}</td>
-                                                <td>{{$client->date_naiss}}</td>
-												<td><a href="{{url('/edit-client'. $client->id)}}" class="btn btn-primary">
-													<i class="fas  fa-cogs"></i>
-												</a>
+												<td>{{$util->nom}}</td>
+												<td>{{$util->prenom}}</td>
+												<td>{{$util->email}}</td>
+												<td>{{$util->role}}</td>
+												<td>
+                                                    @if ($util->role != 'Admin' && $util->role != 'Superviseur')
+                                                    <a href="{{url('/supervisor-edit-user'. $util->id)}}" class="btn btn-primary">
+                                                        <i class="fas  fa-cogs"></i>
+                                                    </a>
+                                                    @endif
 												</td>
 											</tr>
 											@endforeach
@@ -135,10 +129,7 @@
 												<th>Nom</th>
 												<th>Prenom</th>
 												<th>Email</th>
-                                                <th>Civilité</th>
-												<th>Tel</th>
-                                                <th>Ville</th>
-                                                <th>Date de naissance</th>
+												<th>Role</th>
                                                 <th>Actions</th>
 											</tr>
 										</tfoot>

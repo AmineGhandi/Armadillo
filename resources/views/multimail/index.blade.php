@@ -1,4 +1,11 @@
 @extends('layout.index')
+@section('nav-items')
+<div class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+    <a class="dropdown-item" href="{{url('/edit-profil' . $LoggedUserInfo['id'])}}"><i class="align-middle me-1 fas fa-fw fa-user"></i> Modifier Profile</a>
+    <div class="dropdown-divider"></div>
+    <a class="dropdown-item" href="{{route('logout')}}"><i class="align-middle me-1 fas fa-fw fa-arrow-alt-circle-right"></i> Se deconnecter</a>
+</div>
+@endsection
 @section('Sidebar')
 <ul class="sidebar-nav">
 	<li class="sidebar-header">
@@ -75,7 +82,7 @@
                 <label class="form-label">Email</label>
 				</br>
                 <select name="email" class="select2 form-control" style="width: 100%" required> 
-				<option value="">select an option</option>
+				<option value="">selectionnez une option</option>
 					@foreach ($clients as $Client)
                     <option value="{{$Client->email}}">{{$Client->email}}</option>
 					@endforeach
@@ -91,16 +98,16 @@
                 </select>
             </div>
 			 <div class="form-group">
-				 <label>Subject</label>
-				 <input type="text" name="subject" class="form-control" placeholder="Enter Subject">
+				 <label>Sujet</label>
+				 <input type="text" name="subject" class="form-control" placeholder="Entrez Sujet">
 			 </div>
 			 <div class="form-group">
 				 <label>Message</label>
-				 <textarea name="message" class="form-control" placeholder="Enter Message"></textarea>
+				 <textarea name="message" class="form-control" placeholder="Entrez un message"></textarea>
 			 </div>
 	  </div>
 	  <div class="card-body">
-		 <button type="submit" class="btn btn-primary">Send</button>
+		 <button type="submit" class="btn btn-primary">Envoyer</button>
 		 <a href="{{route('Admin')}}" class="btn btn-info">Annuler</a>
 	  </div>
 	</div>

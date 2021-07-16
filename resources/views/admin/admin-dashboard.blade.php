@@ -4,6 +4,13 @@
 	Bonjour, {{$LoggedUserInfo['prenom']}}!
 </h1>
 @endsection
+@section('nav-items')
+<div class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+    <a class="dropdown-item" href="{{url('/edit-profil' . $LoggedUserInfo['id'])}}"><i class="align-middle me-1 fas fa-fw fa-user"></i> Modifier Profile</a>
+    <div class="dropdown-divider"></div>
+    <a class="dropdown-item" href="{{route('logout')}}"><i class="align-middle me-1 fas fa-fw fa-arrow-alt-circle-right"></i> Se deconnecter</a>
+</div>
+@endsection
 @section('Sidebar')
 <ul class="sidebar-nav">
 	<li class="sidebar-header">
