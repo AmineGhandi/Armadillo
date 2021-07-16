@@ -42,6 +42,12 @@
 
 <head>
 <link href="css/checkcss.css" rel="stylesheet">
+<style type="text/css" media="print">
+	@page { size: landscape; }
+	* {
+		  -webkit-print-color-adjust: exact !important; /Chrome/
+	  }
+  </style>
 </head>
 <form action="" method="post">
 	
@@ -83,7 +89,7 @@
       <img src="img/armadillo_fullt.png" alt="" style="margin-bottom: 8px;height: 40px;">
     </div>
 	<span style="font-style:oblique;">Montant en lettre:</span>
-	<span style="margin: 26%; font-style:oblique;">Montant en nombre:</span>
+	<span style="margin: 26%; font-style:oblique;">Montant en chiffres:</span>
     <div style="  float:right; margin-top:-15px; clear:both; background-color:#FFF; color:#111; padding:1px 10px; border:1px solid #006699;"><?php echo $mn;?> MAD</div>
     <div style=" border-bottom:1px #111 solid; margin-bottom:10px; width: 280px; max-width:280px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
 	<?php echo $stringOutput;?> DIRHAM</div> 
@@ -95,11 +101,11 @@
     </div>
 	<span style="font-style:oblique;">Nom de beneficiaire :</span>
 	<div style="border-bottom:1px #111 solid; width: 194px;">
-      <span><?php echo $memo;?>s</span>
+      <span><?php echo $memo;?></span>
     </div>
     <br />
     <div style="margin-top: -10px;width: 87%;float: left;font-size: 10pt;margin-right: 10px;">
-      <div ><b style="font-style:oblique;">Adress :</b><br /><?php echo $add;?></div>
+      <div ><b style="font-style:oblique;">Addresse :</b><br /><?php echo $add;?></div>
     </div>
 	<div style="margin-top: -39px;width: 34%;float: right;font-size: 10pt;margin-right: 92px;">
       <div><b style="font-style:oblique;">Date :</b><br /> <?php echo $datenaiss;?></div>

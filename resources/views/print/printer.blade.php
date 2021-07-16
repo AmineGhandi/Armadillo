@@ -61,11 +61,11 @@
 											</div>
 										</div>
 										<div class="mb-3">
-											<label for="inputAddress">Address</label>
+											<label for="inputAddress">Addresse</label>
 											<input type="text" class="form-control" name="add"  placeholder="1234 Main St">
 										</div>
 										<div class="mb-3">
-											<label for="montantennombre">Montant en nombre</label>
+											<label for="montantennombre">Montant en chiffres</label>
 											<input type="text" class="form-control" id="numberInput" name="mn" placeholder="montant en nombre">
 										</div>
 										<div class="row">

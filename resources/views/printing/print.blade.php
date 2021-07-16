@@ -68,6 +68,8 @@
 
 <head>
 <link href="css/checkcss.css" rel="stylesheet">
+<link href="//db.onlinewebfonts.com/c/1cfac2832ad49f16a3ea6b5c2287af2f?family=Mistral" rel="stylesheet" type="text/css"/>
+
 </head>
 <form action="" method="post">
 	
@@ -102,6 +104,12 @@
 	<!-- css linking -->
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
+	<style type="text/css" media="print">
+		@page { size: landscape; }
+		* {
+			  -webkit-print-color-adjust: exact !important; /Chrome/
+		  }
+	  </style>
 
 <!-- check body with css bcs printing won't work with class methode -->
   <div style="float: left; background-color: #cde7f0; height: 270px; width: 67%; border-radius: 0; font-family: arial, unicode, ms-century;color: #111;padding: 5px;font-family: monospace, arial, sans-serif, helvetica;font-size: 10pt;border:4px solid #006699;" >
@@ -109,7 +117,7 @@
       <img src="img/armadillo_fullt.png" alt="" style="margin-bottom: 8px;height: 40px;">
     </div>
 	<span style="font-style:oblique;">Montant en lettre:</span>
-	<span style="margin: 26%; font-style:oblique;">Montant en nombre:</span>
+	<span style="margin: 26%; font-style:oblique;">Montant en chiffres:</span>
     <div style="  float:right; margin-top:-15px; clear:both; background-color:#FFF; color:#111; padding:1px 10px; border:1px solid #006699;"><?php echo $mn;?> MAD</div>
     <div style=" border-bottom:1px #111 solid; margin-bottom:10px; width: 280px; max-width:280px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
 	<?php echo $stringOutput;?> DIRHAM</div> 
@@ -121,11 +129,11 @@
     </div>
 	<span style="font-style:oblique;">Nom de beneficiaire :</span>
 	<div style="border-bottom:1px #111 solid; width: 194px;">
-      <span><?php echo $memo;?>s</span>
+      <span><?php echo $memo;?></span>
     </div>
     <br />
     <div style="margin-top: -10px;width: 87%;float: left;font-size: 10pt;margin-right: 10px;">
-      <div ><b style="font-style:oblique;">Adress :</b><br /><?php echo $add;?></div>
+      <div ><b style="font-style:oblique;">Addresse :</b><br /><?php echo $add;?></div>
     </div>
 	<div style="margin-top: -39px;width: 34%;float: right;font-size: 10pt;margin-right: 92px;">
       <div><b style="font-style:oblique;">Date :</b><br /> <?php echo $datenaiss;?></div>
@@ -139,7 +147,7 @@
 
 <!-- buttons -->
 	<button onclick="printDiv('printMe')" class="btn btn-success">Inprimer le cheque</button>
-	<a href="javascript:history.back()" class="btn btn-primary"">Modifier</a>
+	<a href="javascript:history.back()" class="btn btn-primary">Modifier</a>
 	<a href='{{ URL::previous() }}' class="btn btn-info">nouveau cheque</a>
 
 

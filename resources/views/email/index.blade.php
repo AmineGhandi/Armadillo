@@ -78,7 +78,7 @@
 			
 			 <div class="mb-3">
                 <label class="form-label">Email</label>
-				</br>
+				
                 <select name="email" class="select2 form-control" style="width: 100%"> 
 					<option disabled selected style="font-size: 12%;">Selectionnez un email</option>
 					@foreach ($clients as $Client)

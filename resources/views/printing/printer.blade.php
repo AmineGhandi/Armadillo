@@ -1,4 +1,11 @@
 @extends('layout.index')
+@section('nav-items')
+<div class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+    <a class="dropdown-item" href="{{url('/edit-profil' . $LoggedUserInfo['id'])}}"><i class="align-middle me-1 fas fa-fw fa-user"></i> Modifier Profile</a>
+    <div class="dropdown-divider"></div>
+    <a class="dropdown-item" href="{{route('logout')}}"><i class="align-middle me-1 fas fa-fw fa-arrow-alt-circle-right"></i> Se deconnecter</a>
+</div>
+@endsection
 @section('Sidebar')
 <ul class="sidebar-nav">
 	<li class="sidebar-header">
@@ -80,11 +87,11 @@
 											</div>
 										</div>
 										<div class="mb-3">
-											<label for="inputAddress">Address</label>
+											<label for="inputAddress">Addresse</label>
 											<input type="text" class="form-control" name="add"  placeholder="1234 Main St">
 										</div>
 										<div class="mb-3">
-											<label for="montantennombre">Montant en nombre</label>
+											<label for="montantennombre">Montant en chiffres</label>
 											<input type="text" class="form-control" id="numberInput" name="mn" placeholder="montant en nombre">
 										</div>
 										<div class="row">
