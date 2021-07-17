@@ -125,13 +125,10 @@
     </script>
 
 <div class="row">
-	<div class="col-sm-7">
-		<div id="piechart" style="width: 800px; height: 425px;"></div>
-	</div>
-	<div class="col-sm-5">
+
 		<div id="piechart2" style="width: 650px; height: 425px;"></div>
 	</div>
-</div>
+
 <div id="top_x_div" style="width: 800px; height: 600px;"></div>
 
 @endsection
