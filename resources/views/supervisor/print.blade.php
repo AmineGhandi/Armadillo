@@ -64,7 +64,7 @@
 <style type="text/css" media="print">
 	@page { size: landscape; }
 	* {
-		  -webkit-print-color-adjust: exact !important; /Chrome/
+		  -webkit-print-color-adjust: exact !important;
 	  }
   </style>
 </head>
@@ -103,7 +103,7 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
 
 <!-- check body with css bcs printing won't work with class methode -->
-  <div style="float: left; background-color: #cde7f0; height: 270px; width: 67%; border-radius: 0; font-family: arial, unicode, ms-century;color: #111;padding: 5px;font-family: monospace, arial, sans-serif, helvetica;font-size: 10pt;border:4px solid #006699;" >
+  <div style="float: left; background-color: #cde7f0; height: 291px; width: 67%; border-radius: 0; font-family: arial, unicode, ms-century;color: #111;padding: 5px;font-family: monospace, arial, sans-serif, helvetica;font-size: 10pt;border:4px solid #006699;" >
     <div class="check-bank">
       <img src="img/armadillo_fullt.png" alt="" style="margin-bottom: 8px;height: 40px;">
     </div>
@@ -128,6 +128,9 @@
     </div>
 	<div style="margin-top: -39px;width: 34%;float: right;font-size: 10pt;margin-right: 92px;">
       <div><b style="font-style:oblique;">Date :</b><br /> <?php echo $datenaiss;?></div>
+    </div>
+	<div style="margin-top: 7px;width: 87%;float: left;font-size: 10pt;margin-right: 10px;">
+      <div ><b style="font-style:oblique;">RIB :</b><?php echo $rib;?></div>
     </div>
   </div>
 </div>

@@ -84,6 +84,10 @@
 												<label for="memo">beneficiaire</label>
 												<input type="text" class="form-control" name="memo" id="Memo" placeholder="Nom de beneficiaire">
 											</div>
+											<div class="mb-3">
+												<label for="memo">RIB</label>
+												<input type="text" class="form-control" name="rib" id="rib" placeholder="RIB">
+											</div>
 										</div>
 										<button type="submit" class="btn btn-primary">Print</button>
 										<a href="{{route('Mail')}}" class="btn btn-info">Retour</a>
