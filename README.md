@@ -9,14 +9,14 @@
 - CRUD utilisateurs
 - Side bar dynamic selon le rôle de l'utilisateur
 - Export en PDF ou excel
-- Envoyer des emails pour un ou plusiur utilisateur
+- Envoyer des emails pour un ou plusieurs utilisateur
 - Impression de cheque (vide ou plein)
 
 # Comment le faire fonctionner :
 
  - Créer le fichier .env en copiant .env.example
  - Changer le nom de la base de données dans le fichier .env
- - Exécuter les commandes
+ - Exécuter les commandes suivantes dans le chemin du projet :
 
  ```sh
     Composer install
