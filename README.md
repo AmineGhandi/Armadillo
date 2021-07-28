@@ -14,7 +14,7 @@
 
 # Comment le faire fonctionner :
 
- - Créer le fichier .env en copiant .env.example
+ - Modifier le fichier .env par votre propre gmail et mot de passe
  - Changer le nom de la base de données dans le fichier .env
  - Exécuter les commandes suivantes dans le chemin du projet :
 
